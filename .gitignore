@@ -3,3 +3,7 @@
 *.txt
 *.xls*
 *.zip
+*.gdoc
+.DS_STORE
+*.db
+*.un~
