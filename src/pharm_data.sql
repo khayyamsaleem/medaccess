@@ -110,6 +110,27 @@ create table NDC_DATA(
     DEASCHEDULE varchar
 );
 
+create table RXCUI_DATA(
+    RXCUI varchar,
+    GENERIC_RXCUI varchar,
+    TTY varchar,
+    FULL_NAME varchar,
+    RXN_DOSE_FORM varchar,
+    FULL_GENERIC_NAME varchar,
+    BRAND_NAME varchar,
+    DISPLAY_NAME varchar,
+    ROUTE varchar,
+    NEW_DOSE_FORM varchar,
+    STRENGTH varchar,
+    SUPPRESS_FOR varchar,
+    DISPLAY_NAME_SYNONYM varchar,
+    IS_RETIRED varchar,
+    SXDG_RXCUI varchar,
+    SXDG_TTY varchar,
+    SXDG_NAME varchar,
+    PSN varchar
+);
+
 .mode csv
 .import '../data/2018 Beneficiary Cost file.csv' BENEFICIARY_COST
 .import '../data/2018 Geographic locator file.csv' GEOGRAPHIC_LOCATOR
@@ -118,3 +139,4 @@ create table NDC_DATA(
 .import '../data/FORMULARY_DATA.csv' FORMULARY_DATA
 .import '../data/NDC_DRUG_FILE_LIST_UTF8.csv' NDC_DATA
 .import '../data/2018NCPDPFILE_CLEAN.csv' NCPDP
+.import '../data/RXCUI_DATA.csv' RXCUI_DATA
