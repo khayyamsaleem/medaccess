@@ -11781,7 +11781,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#importing necessary libraries</span>
@@ -11803,6 +11803,24 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ALL TABLES: BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMULARY_DATA, NDC_DATA, RXCUI_DATA, 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11814,7 +11832,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Asks user for their zip code, gets state, determines pdp_region_code based on state</span>
@@ -11844,8 +11862,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>ALL TABLES: BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMULARY_DATA, NDC_DATA, RXCUI_DATA
-Enter your zipcode: 07095
+<pre>Enter your zipcode: 07040
 </pre>
 </div>
 </div>
@@ -11864,7 +11881,7 @@ Enter your zipcode: 07095
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">F_SUBSET</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select * from PLAN_INFO</span><span class="se">\</span>
@@ -11884,7 +11901,7 @@ Enter your zipcode: 07095
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -12158,7 +12175,7 @@ Enter your zipcode: 07095
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_generics</span> <span class="o">=</span> <span class="p">{(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a generic drug name: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>\
@@ -12181,24 +12198,28 @@ Enter your zipcode: 07095
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter how many drugs you wish to search: 2
-Enter a generic drug name: Lisinopril
-Enter a desired strength: 10
-Enter a generic drug name: Somatropin
-Enter a desired strength: 0
+<pre>Enter how many drugs you wish to search: 3
+Enter a generic drug name: metoprolol succinate
+Enter a desired strength: 50
+Enter a generic drug name: metformin
+Enter a desired strength: 500
+Enter a generic drug name: allopurinol
+Enter a desired strength: 300
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{(&#39;LISINOPRIL&#39;, &#39;10&#39;): [], (&#39;SOMATROPIN&#39;, &#39;0&#39;): []}</pre>
+<pre>{(&#39;ALLOPURINOL&#39;, &#39;300&#39;): [],
+ (&#39;METFORMIN&#39;, &#39;500&#39;): [],
+ (&#39;METOPROLOL SUCCINATE&#39;, &#39;50&#39;): []}</pre>
 </div>
 
 </div>
@@ -12217,7 +12238,7 @@ Enter a desired strength: 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">drug</span><span class="p">,</span><span class="n">strength</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">:</span>
@@ -12249,7 +12270,7 @@ Enter a desired strength: 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">drug</span><span class="p">,</span><span class="n">strength</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">:</span>
@@ -12283,11 +12304,11 @@ Enter a desired strength: 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#EXAMPLE FOR LISINOPRIL</span>
-<span class="n">user_generics</span><span class="p">[(</span><span class="s1">&#39;LISINOPRIL&#39;</span><span class="p">,</span><span class="s1">&#39;10&#39;</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#EXAMPLE FOR METFORMIN</span>
+<span class="n">user_generics</span><span class="p">[(</span><span class="s1">&#39;METFORMIN&#39;</span><span class="p">,</span><span class="s1">&#39;500&#39;</span><span class="p">)]</span>
 </pre></div>
 
 </div>
@@ -12300,7 +12321,7 @@ Enter a desired strength: 0
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[108]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -12340,7 +12361,7 @@ Enter a desired strength: 0
     <tr>
       <th>0</th>
       <td>00018039</td>
-      <td>314076</td>
+      <td>861740</td>
       <td>S5820</td>
       <td>3</td>
       <td>AARP MedicareRx Preferred (PDP)</td>
@@ -12354,7 +12375,7 @@ Enter a desired strength: 0
     <tr>
       <th>1</th>
       <td>00018039</td>
-      <td>197885</td>
+      <td>861736</td>
       <td>S5820</td>
       <td>3</td>
       <td>AARP MedicareRx Preferred (PDP)</td>
@@ -12367,22 +12388,120 @@ Enter a desired strength: 0
     </tr>
     <tr>
       <th>2</th>
-      <td>00018040</td>
-      <td>314076</td>
-      <td>S5921</td>
-      <td>349</td>
-      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>00018039</td>
+      <td>1664321</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>33.2</td>
-      <td>405.0</td>
+      <td>37.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>00018039</td>
+      <td>1664325</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>00018039</td>
+      <td>861007</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>00018039</td>
+      <td>1545166</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>00018039</td>
+      <td>1545159</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>00018039</td>
+      <td>1811011</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>00018039</td>
+      <td>1811003</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>00018039</td>
+      <td>860975</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
       <td>00018040</td>
-      <td>197885</td>
+      <td>861740</td>
       <td>S5921</td>
       <td>349</td>
       <td>AARP MedicareRx Saver Plus (PDP)</td>
@@ -12391,488 +12510,320 @@ Enter a desired strength: 0
       <td>1</td>
       <td>1.0</td>
       <td>33.2</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>00018041</td>
-      <td>314076</td>
-      <td>S0522</td>
-      <td>4</td>
-      <td>Symphonix Value Rx (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>30.4</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>00018041</td>
-      <td>197885</td>
-      <td>S0522</td>
-      <td>4</td>
-      <td>Symphonix Value Rx (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>30.4</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>00018043</td>
-      <td>314076</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>26.8</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>00018043</td>
-      <td>197885</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>26.8</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>00018056</td>
-      <td>314076</td>
-      <td>S5810</td>
-      <td>38</td>
-      <td>Aetna Medicare Rx Saver (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>34.9</td>
-      <td>325.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>00018056</td>
-      <td>197885</td>
-      <td>S5810</td>
-      <td>38</td>
-      <td>Aetna Medicare Rx Saver (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>34.9</td>
-      <td>325.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>00018057</td>
-      <td>314076</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>19.7</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>00018057</td>
-      <td>197885</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>00018040</td>
+      <td>1593831</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>19.7</td>
+      <td>30.0</td>
+      <td>33.2</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>00018059</td>
-      <td>314076</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>First Health Part D Value Plus (PDP)</td>
+      <td>00018040</td>
+      <td>1593835</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>56.2</td>
-      <td>0.0</td>
+      <td>30.0</td>
+      <td>33.2</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>00018059</td>
-      <td>197885</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>First Health Part D Value Plus (PDP)</td>
+      <td>00018040</td>
+      <td>861736</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
       <td>1</td>
       <td>1</td>
       <td>1.0</td>
-      <td>56.2</td>
-      <td>0.0</td>
+      <td>33.2</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>00018082</td>
-      <td>314076</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>00018040</td>
+      <td>1243033</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>74.8</td>
+      <td>30.0</td>
+      <td>33.2</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>00018082</td>
-      <td>197885</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>00018040</td>
+      <td>1664321</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>74.8</td>
+      <td>30.0</td>
+      <td>33.2</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>00018083</td>
-      <td>314076</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>00018040</td>
+      <td>1664325</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>52.9</td>
-      <td>0.0</td>
+      <td>30.0</td>
+      <td>33.2</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>00018083</td>
-      <td>197885</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>00018040</td>
+      <td>861007</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
       <td>1</td>
       <td>1</td>
-      <td>4.0</td>
-      <td>52.9</td>
-      <td>0.0</td>
+      <td>1.0</td>
+      <td>33.2</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>00018130</td>
-      <td>314076</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>00018040</td>
+      <td>860975</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>N</td>
-      <td>2</td>
       <td>1</td>
-      <td>8.0</td>
-      <td>47.7</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>33.2</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>00018130</td>
-      <td>197885</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>00018041</td>
+      <td>861740</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
-      <td>2</td>
       <td>1</td>
-      <td>8.0</td>
-      <td>47.7</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>30.4</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>00018131</td>
-      <td>314076</td>
-      <td>S5993</td>
-      <td>3</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>00018041</td>
+      <td>1593831</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>99.6</td>
-      <td>0.0</td>
+      <td>35.0</td>
+      <td>30.4</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>00018131</td>
-      <td>197885</td>
-      <td>S5993</td>
-      <td>3</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>00018041</td>
+      <td>1593835</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>99.6</td>
-      <td>0.0</td>
+      <td>35.0</td>
+      <td>30.4</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>00018152</td>
-      <td>314076</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>00018041</td>
+      <td>861736</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
       <td>1</td>
       <td>1</td>
       <td>1.0</td>
-      <td>22.6</td>
+      <td>30.4</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>00018152</td>
-      <td>197885</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>00018041</td>
+      <td>1243033</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>22.6</td>
+      <td>35.0</td>
+      <td>30.4</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>00018154</td>
-      <td>314076</td>
-      <td>S5660</td>
-      <td>106</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>00018041</td>
+      <td>1664321</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>34.0</td>
+      <td>35.0</td>
+      <td>30.4</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>00018154</td>
-      <td>197885</td>
-      <td>S5660</td>
-      <td>106</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>00018041</td>
+      <td>1664325</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>34.0</td>
+      <td>35.0</td>
+      <td>30.4</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>00018155</td>
-      <td>314076</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>00018041</td>
+      <td>861007</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
       <td>1</td>
       <td>1</td>
-      <td>2.0</td>
-      <td>91.7</td>
-      <td>350.0</td>
+      <td>1.0</td>
+      <td>30.4</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>00018155</td>
-      <td>197885</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>00018041</td>
+      <td>860975</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>N</td>
       <td>1</td>
       <td>1</td>
-      <td>2.0</td>
-      <td>91.7</td>
-      <td>350.0</td>
+      <td>1.0</td>
+      <td>30.4</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>00018254</td>
-      <td>314076</td>
-      <td>S5884</td>
-      <td>131</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>00018043</td>
+      <td>861740</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>37.0</td>
+      <td>31.0</td>
+      <td>26.8</td>
       <td>405.0</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>00018254</td>
-      <td>197885</td>
-      <td>S5884</td>
-      <td>131</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>00018043</td>
+      <td>861736</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
       <td>N</td>
+      <td>3</td>
       <td>1</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>37.0</td>
+      <td>31.0</td>
+      <td>26.8</td>
       <td>405.0</td>
     </tr>
     <tr>
-      <th>30</th>
-      <td>00018255</td>
-      <td>314076</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>20.4</td>
-      <td>405.0</td>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>31</th>
-      <td>00018255</td>
-      <td>197885</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>20.4</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>00018256</td>
-      <td>314076</td>
-      <td>S5884</td>
-      <td>62</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>77.8</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>00018256</td>
-      <td>197885</td>
-      <td>S5884</td>
-      <td>62</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>77.8</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>00018364</td>
-      <td>314076</td>
-      <td>S7694</td>
-      <td>4</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>51.0</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>00018364</td>
-      <td>197885</td>
-      <td>S7694</td>
-      <td>4</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>51.0</td>
-      <td>405.0</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>00018419</td>
-      <td>314076</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>34.3</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>00018419</td>
-      <td>197885</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>34.3</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>38</th>
+      <th>167</th>
       <td>00018420</td>
-      <td>314076</td>
+      <td>861736</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>00018420</td>
+      <td>1243033</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>35.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>00018420</td>
+      <td>861007</td>
       <td>S5601</td>
       <td>9</td>
       <td>SilverScript Plus (PDP)</td>
@@ -12884,9 +12835,65 @@ Enter a desired strength: 0
       <td>0.0</td>
     </tr>
     <tr>
-      <th>39</th>
+      <th>170</th>
       <td>00018420</td>
-      <td>197885</td>
+      <td>1545166</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>35.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>00018420</td>
+      <td>1545159</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>35.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>00018420</td>
+      <td>1811011</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>35.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>00018420</td>
+      <td>1811003</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>35.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>00018420</td>
+      <td>860975</td>
       <td>S5601</td>
       <td>9</td>
       <td>SilverScript Plus (PDP)</td>
@@ -12898,9 +12905,9 @@ Enter a desired strength: 0
       <td>0.0</td>
     </tr>
     <tr>
-      <th>40</th>
+      <th>175</th>
       <td>00018439</td>
-      <td>314076</td>
+      <td>861740</td>
       <td>S4802</td>
       <td>101</td>
       <td>WellCare Extra (PDP)</td>
@@ -12912,9 +12919,37 @@ Enter a desired strength: 0
       <td>0.0</td>
     </tr>
     <tr>
-      <th>41</th>
+      <th>176</th>
       <td>00018439</td>
-      <td>197885</td>
+      <td>1593831</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>00018439</td>
+      <td>1593835</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>00018439</td>
+      <td>861736</td>
       <td>S4802</td>
       <td>101</td>
       <td>WellCare Extra (PDP)</td>
@@ -12926,9 +12961,177 @@ Enter a desired strength: 0
       <td>0.0</td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>179</th>
+      <td>00018439</td>
+      <td>1243033</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>00018439</td>
+      <td>861007</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>181</th>
+      <td>00018439</td>
+      <td>1545166</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>00018439</td>
+      <td>1545159</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>183</th>
+      <td>00018439</td>
+      <td>1811011</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>184</th>
+      <td>00018439</td>
+      <td>1811003</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>185</th>
+      <td>00018439</td>
+      <td>860975</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>186</th>
       <td>00018443</td>
-      <td>314076</td>
+      <td>861740</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>00018443</td>
+      <td>1593831</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>188</th>
+      <td>00018443</td>
+      <td>1593835</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>189</th>
+      <td>00018443</td>
+      <td>861736</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>00018443</td>
+      <td>1243033</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>191</th>
+      <td>00018443</td>
+      <td>861007</td>
       <td>S4802</td>
       <td>78</td>
       <td>WellCare Classic (PDP)</td>
@@ -12940,9 +13143,65 @@ Enter a desired strength: 0
       <td>405.0</td>
     </tr>
     <tr>
-      <th>43</th>
+      <th>192</th>
       <td>00018443</td>
-      <td>197885</td>
+      <td>1545166</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>00018443</td>
+      <td>1545159</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>194</th>
+      <td>00018443</td>
+      <td>1811011</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>00018443</td>
+      <td>1811003</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>37.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>00018443</td>
+      <td>860975</td>
       <td>S4802</td>
       <td>78</td>
       <td>WellCare Classic (PDP)</td>
@@ -12950,6 +13209,756 @@ Enter a desired strength: 0
       <td>1</td>
       <td>1</td>
       <td>0.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>197 rows × 11 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#EXAMPLE FOR ALLOPURINOL</span>
+<span class="n">user_generics</span><span class="p">[(</span><span class="s1">&#39;ALLOPURINOL&#39;</span><span class="p">,</span><span class="s1">&#39;300&#39;</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FORMULARY_ID</th>
+      <th>RXCUI</th>
+      <th>CONTRACT_ID</th>
+      <th>PLAN_ID</th>
+      <th>PLAN_NAME</th>
+      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>TIER</th>
+      <th>DAYS_SUPPLY</th>
+      <th>COST_AMT_PREF</th>
+      <th>PREMIUM</th>
+      <th>DEDUCTIBLE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00018039</td>
+      <td>197320</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00018040</td>
+      <td>197320</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>33.2</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>00018041</td>
+      <td>197320</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>30.4</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00018043</td>
+      <td>197320</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>26.8</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>00018056</td>
+      <td>197320</td>
+      <td>S5810</td>
+      <td>38</td>
+      <td>Aetna Medicare Rx Saver (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>34.9</td>
+      <td>325.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>00018057</td>
+      <td>197320</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>19.7</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>00018059</td>
+      <td>197320</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>56.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>00018082</td>
+      <td>197320</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>74.8</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>00018083</td>
+      <td>197320</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>52.9</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>00018130</td>
+      <td>197320</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>47.7</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>00018131</td>
+      <td>197320</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>99.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>00018152</td>
+      <td>197320</td>
+      <td>S5660</td>
+      <td>220</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>22.6</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>00018154</td>
+      <td>197320</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>34.0</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>00018155</td>
+      <td>197320</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>91.7</td>
+      <td>350.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>00018254</td>
+      <td>197320</td>
+      <td>S5884</td>
+      <td>131</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>37.0</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>00018255</td>
+      <td>197320</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>20.4</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>00018256</td>
+      <td>197320</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>7.0</td>
+      <td>77.8</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>00018364</td>
+      <td>197320</td>
+      <td>S7694</td>
+      <td>4</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>51.0</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>00018419</td>
+      <td>197320</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>14.0</td>
+      <td>34.3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>00018420</td>
+      <td>197320</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>00018439</td>
+      <td>197320</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>00018443</td>
+      <td>197320</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_generics</span><span class="p">[(</span><span class="s1">&#39;METOPROLOL SUCCINATE&#39;</span><span class="p">,</span><span class="s1">&#39;50&#39;</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FORMULARY_ID</th>
+      <th>RXCUI</th>
+      <th>CONTRACT_ID</th>
+      <th>PLAN_ID</th>
+      <th>PLAN_NAME</th>
+      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>TIER</th>
+      <th>DAYS_SUPPLY</th>
+      <th>COST_AMT_PREF</th>
+      <th>PREMIUM</th>
+      <th>DEDUCTIBLE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00018039</td>
+      <td>866436</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>10.0</td>
+      <td>86.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00018040</td>
+      <td>866436</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>33.2</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>00018041</td>
+      <td>866436</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>Symphonix Value Rx (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>30.4</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00018043</td>
+      <td>866436</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>26.8</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>00018056</td>
+      <td>866436</td>
+      <td>S5810</td>
+      <td>38</td>
+      <td>Aetna Medicare Rx Saver (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>34.9</td>
+      <td>325.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>00018057</td>
+      <td>866436</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>19.7</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>00018059</td>
+      <td>866436</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>56.2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>00018082</td>
+      <td>866436</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>74.8</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>00018083</td>
+      <td>866436</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>52.9</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>00018130</td>
+      <td>866436</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>47.7</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>00018131</td>
+      <td>866436</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>8.0</td>
+      <td>99.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>00018152</td>
+      <td>866436</td>
+      <td>S5660</td>
+      <td>220</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>22.6</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>00018154</td>
+      <td>866436</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>34.0</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>00018155</td>
+      <td>866436</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>7.0</td>
+      <td>91.7</td>
+      <td>350.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>00018254</td>
+      <td>866436</td>
+      <td>S5884</td>
+      <td>131</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>37.0</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>00018255</td>
+      <td>866436</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>20.4</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>00018256</td>
+      <td>866436</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>7.0</td>
+      <td>77.8</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>00018364</td>
+      <td>866436</td>
+      <td>S7694</td>
+      <td>4</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>51.0</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>00018419</td>
+      <td>866436</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>14.0</td>
+      <td>34.3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>00018420</td>
+      <td>866436</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>84.6</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>00018439</td>
+      <td>866436</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>N</td>
+      <td>3</td>
+      <td>1</td>
+      <td>36.0</td>
+      <td>79.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>00018443</td>
+      <td>866436</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>36.9</td>
       <td>405.0</td>
     </tr>
@@ -12974,7 +13983,7 @@ Enter a desired strength: 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">totals</span> <span class="o">=</span> <span class="p">{(</span><span class="n">drug</span><span class="p">,</span><span class="n">strength</span><span class="p">):</span><span class="kc">None</span> <span class="k">for</span> <span class="n">drug</span><span class="p">,</span><span class="n">strength</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">}</span>
@@ -12987,11 +13996,11 @@ Enter a desired strength: 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[119]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">totals</span><span class="p">:</span>
-    <span class="n">totals</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][[</span><span class="s1">&#39;FORMULARY_ID&#39;</span><span class="p">,</span><span class="s1">&#39;RXCUI&#39;</span><span class="p">,</span><span class="s1">&#39;CONTRACT_ID&#39;</span><span class="p">,</span><span class="s1">&#39;PLAN_ ID&#39;</span><span class="p">,</span>\
+    <span class="n">totals</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][[</span><span class="s1">&#39;FORMULARY_ID&#39;</span><span class="p">,</span><span class="s1">&#39;RXCUI&#39;</span><span class="p">,</span><span class="s1">&#39;CONTRACT_ID&#39;</span><span class="p">,</span><span class="s1">&#39;PLAN_ID&#39;</span><span class="p">,</span>\
                                      <span class="s1">&#39;PLAN_NAME&#39;</span><span class="p">,</span><span class="s1">&#39;PRIOR_AUTHORIZATION_YN&#39;</span><span class="p">]]</span>
     <span class="n">totals</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;TOTAL_ANNUAL_COST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">]</span> <span class="o">+</span> \
                                        <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span> <span class="o">+</span> \
@@ -13029,11 +14038,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#EXAMPLE WITH LISINOPRIL</span>
-<span class="n">totals</span><span class="p">[(</span><span class="s1">&#39;LISINOPRIL&#39;</span><span class="p">,</span><span class="s1">&#39;10&#39;</span><span class="p">)]</span>
+<span class="n">totals</span><span class="p">[(</span><span class="s1">&#39;METOPROLOL SUCCINATE&#39;</span><span class="p">,</span><span class="s1">&#39;50&#39;</span><span class="p">)]</span>
 </pre></div>
 
 </div>
@@ -13046,7 +14055,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[120]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13080,54 +14089,278 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
   </thead>
   <tbody>
     <tr>
-      <th>37</th>
+      <th>18</th>
       <td>00018419</td>
-      <td>197885</td>
+      <td>866436</td>
       <td>S5601</td>
       <td>8</td>
       <td>SilverScript Choice (PDP)</td>
       <td>N</td>
-      <td>447.6</td>
+      <td>579.6</td>
     </tr>
     <tr>
-      <th>36</th>
-      <td>00018419</td>
-      <td>314076</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>N</td>
-      <td>447.6</td>
-    </tr>
-    <tr>
-      <th>10</th>
+      <th>5</th>
       <td>00018057</td>
-      <td>314076</td>
+      <td>866436</td>
       <td>S5810</td>
       <td>278</td>
       <td>Aetna Medicare Rx Select (PDP)</td>
       <td>N</td>
-      <td>641.4</td>
+      <td>677.4</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>00018057</td>
-      <td>197885</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
+      <th>8</th>
+      <td>00018083</td>
+      <td>866436</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
       <td>N</td>
-      <td>641.4</td>
+      <td>682.8</td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>15</th>
       <td>00018255</td>
-      <td>197885</td>
+      <td>866436</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>N</td>
+      <td>697.8</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>00018059</td>
+      <td>866436</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>N</td>
+      <td>698.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">totals</span><span class="p">[(</span><span class="s1">&#39;METFORMIN&#39;</span><span class="p">,</span><span class="s1">&#39;500&#39;</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[20]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FORMULARY_ID</th>
+      <th>RXCUI</th>
+      <th>CONTRACT_ID</th>
+      <th>PLAN_ID</th>
+      <th>PLAN_NAME</th>
+      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>TOTAL_ANNUAL_COST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>158</th>
+      <td>00018419</td>
+      <td>861007</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>N</td>
+      <td>447.6</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>00018419</td>
+      <td>860975</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>N</td>
+      <td>447.6</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>00018419</td>
+      <td>861740</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>N</td>
+      <td>579.6</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>00018419</td>
+      <td>861736</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>N</td>
+      <td>579.6</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>00018057</td>
+      <td>861007</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>N</td>
+      <td>641.4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">totals</span><span class="p">[(</span><span class="s1">&#39;ALLOPURINOL&#39;</span><span class="p">,</span><span class="s1">&#39;300&#39;</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>FORMULARY_ID</th>
+      <th>RXCUI</th>
+      <th>CONTRACT_ID</th>
+      <th>PLAN_ID</th>
+      <th>PLAN_NAME</th>
+      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>TOTAL_ANNUAL_COST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18</th>
+      <td>00018419</td>
+      <td>197320</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>N</td>
+      <td>579.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>00018057</td>
+      <td>197320</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>N</td>
+      <td>641.4</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>00018255</td>
+      <td>197320</td>
       <td>S5884</td>
       <td>150</td>
       <td>Humana Walmart Rx Plan (PDP)</td>
       <td>N</td>
       <td>661.8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>00018083</td>
+      <td>197320</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>N</td>
+      <td>682.8</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>00018059</td>
+      <td>197320</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>N</td>
+      <td>686.4</td>
     </tr>
   </tbody>
 </table>
