@@ -131,6 +131,25 @@ create table RXCUI_DATA(
     PSN varchar
 );
 
+create table PNF_DATA(
+    CONTRACT_ID varchar,
+    PLAN_ID varchar,
+    SEGMENT_ID varchar,
+    PHARMACY_NUMBER varchar,
+    PHARMACY_ZIPCODE varchar,
+    PREFERRED_STATUS_RETAIL varchar,
+    PREFERRED_STATUS_MAIL varchar,
+    PHARMACY_RETAIL varchar,
+    PHARMACY_MAIL varchar,
+    IN_AREA_FLAG varchar,
+    BRAND_DISPENSING_FEE_30 varchar,
+    BRAND_DISPENSING_FEE_60 varchar,
+    BRAND_DISPENSING_FEE_90 varchar,
+    GENERIC_DISPENSING_FEE_30 varchar,
+    GENERIC_DISPENSING_FEE_60 varchar,
+    GENERIC_DISPENSING_FEE_90 varchar
+);
+
 .mode csv
 .import '../data/2018 Beneficiary Cost file.csv' BENEFICIARY_COST
 .import '../data/2018 Geographic locator file.csv' GEOGRAPHIC_LOCATOR
@@ -140,3 +159,9 @@ create table RXCUI_DATA(
 .import '../data/NDC_DRUG_FILE_LIST_UTF8.csv' NDC_DATA
 .import '../data/2018NCPDPFILE_CLEAN.csv' NCPDP
 .import '../data/RXCUI_DATA.csv' RXCUI_DATA
+.separator "|"
+.import '../data/pnf/1.txt' PNF_DATA
+.import '../data/pnf/2.txt' PNF_DATA
+.import '../data/pnf/3.txt' PNF_DATA
+.import '../data/pnf/4.txt' PNF_DATA
+.import '../data/pnf/5.txt' PNF_DATA
