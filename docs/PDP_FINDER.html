@@ -11781,7 +11781,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11832,7 +11832,7 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Asks user for their zip code, gets state, determines pdp_region_code based on state</span>
@@ -11875,313 +11875,21 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="YIELDING-ALL-PLANS-THAT-ARE-IN-THE-REGION-AND-HAVE-S-CONTRACTS">YIELDING ALL PLANS THAT ARE IN THE REGION AND HAVE S-CONTRACTS<a class="anchor-link" href="#YIELDING-ALL-PLANS-THAT-ARE-IN-THE-REGION-AND-HAVE-S-CONTRACTS">&#182;</a></h1>
+<h1 id="REQUESTING-DRUGS-FROM-USER,-YIELDING-RXCUIs">REQUESTING DRUGS FROM USER, YIELDING RXCUIs<a class="anchor-link" href="#REQUESTING-DRUGS-FROM-USER,-YIELDING-RXCUIs">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">F_SUBSET</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select * from PLAN_INFO</span><span class="se">\</span>
-<span class="s2">                        where PDP_REGION_CODE is &#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user_pdp_region_code</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&#39;</span><span class="se">\</span>
-<span class="s2">                        and CONTRACT_ID like &#39;S%&#39;&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>\
-           <span class="p">[[</span><span class="s1">&#39;CONTRACT_ID&#39;</span><span class="p">,</span><span class="s1">&#39;PLAN_ID&#39;</span><span class="p">,</span><span class="s1">&#39;SEGMENT_ID&#39;</span><span class="p">,</span><span class="s1">&#39;FORMULARY_ID&#39;</span><span class="p">,</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">,</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">,</span><span class="s1">&#39;PDP_REGION_CODE&#39;</span><span class="p">]]</span>
-<span class="n">F_SUBSET</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[88]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>SEGMENT_ID</th>
-      <th>FORMULARY_ID</th>
-      <th>PREMIUM</th>
-      <th>DEDUCTIBLE</th>
-      <th>PDP_REGION_CODE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>S0522</td>
-      <td>4</td>
-      <td>0</td>
-      <td>18041</td>
-      <td>30.4</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>S4802</td>
-      <td>78</td>
-      <td>0</td>
-      <td>18443</td>
-      <td>36.9</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>S4802</td>
-      <td>101</td>
-      <td>0</td>
-      <td>18439</td>
-      <td>79.5</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>S5601</td>
-      <td>8</td>
-      <td>0</td>
-      <td>18419</td>
-      <td>34.3</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>S5601</td>
-      <td>9</td>
-      <td>0</td>
-      <td>18420</td>
-      <td>84.6</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>S5617</td>
-      <td>18</td>
-      <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>S5617</td>
-      <td>249</td>
-      <td>0</td>
-      <td>18083</td>
-      <td>52.9</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>S5660</td>
-      <td>106</td>
-      <td>0</td>
-      <td>18154</td>
-      <td>34.0</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>S5660</td>
-      <td>207</td>
-      <td>0</td>
-      <td>18155</td>
-      <td>91.7</td>
-      <td>350.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>S5660</td>
-      <td>220</td>
-      <td>0</td>
-      <td>18152</td>
-      <td>22.6</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>S5768</td>
-      <td>127</td>
-      <td>0</td>
-      <td>18059</td>
-      <td>56.2</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>S5810</td>
-      <td>38</td>
-      <td>0</td>
-      <td>18056</td>
-      <td>34.9</td>
-      <td>325.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>S5810</td>
-      <td>278</td>
-      <td>0</td>
-      <td>18057</td>
-      <td>19.7</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>S5820</td>
-      <td>3</td>
-      <td>0</td>
-      <td>18039</td>
-      <td>86.6</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>S5884</td>
-      <td>62</td>
-      <td>0</td>
-      <td>18256</td>
-      <td>77.8</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>S5884</td>
-      <td>131</td>
-      <td>0</td>
-      <td>18254</td>
-      <td>37.0</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>S5884</td>
-      <td>150</td>
-      <td>0</td>
-      <td>18255</td>
-      <td>20.4</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>S5921</td>
-      <td>349</td>
-      <td>0</td>
-      <td>18040</td>
-      <td>33.2</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>S5921</td>
-      <td>386</td>
-      <td>0</td>
-      <td>18043</td>
-      <td>26.8</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>S5993</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18130</td>
-      <td>47.7</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>S5993</td>
-      <td>3</td>
-      <td>0</td>
-      <td>18131</td>
-      <td>99.6</td>
-      <td>0.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>S7694</td>
-      <td>4</td>
-      <td>0</td>
-      <td>18364</td>
-      <td>51.0</td>
-      <td>405.0</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="REQUESTING-DRUG-NAMES-AND-STRENGTHS-FROM-USER">REQUESTING DRUG NAMES AND STRENGTHS FROM USER<a class="anchor-link" href="#REQUESTING-DRUG-NAMES-AND-STRENGTHS-FROM-USER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="prompt input_prompt">In&nbsp;[197]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_generics</span> <span class="o">=</span> <span class="p">{(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a generic drug name: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>\
-                  <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a desired strength: &quot;</span><span class="p">)):[]</span>\
+                  <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a desired strength: &quot;</span><span class="p">)):</span><span class="kc">None</span>\
                  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter how many drugs you wish to search: &quot;</span><span class="p">)))}</span>
-<span class="n">user_generics</span>
+<span class="k">for</span> <span class="n">drug</span><span class="p">,</span><span class="n">strength</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">:</span>
+    <span class="n">user_generics</span><span class="p">[(</span><span class="n">drug</span><span class="p">,</span><span class="n">strength</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select * from RXCUI_DATA where upper(PSN) like &#39;&quot;</span><span class="o">+</span><span class="n">drug</span><span class="o">+</span><span class="s2">&quot;%&#39; and strength like &#39;&quot;</span><span class="o">+</span><span class="n">strength</span><span class="o">+</span><span class="s2">&quot; %MG&#39; and GENERIC_RXCUI is &#39;&#39;&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;SXDG_RXCUI&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)[</span><span class="s1">&#39;RXCUI&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user_generics</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12199,31 +11907,17 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Enter how many drugs you wish to search: 3
-Enter a generic drug name: METFORMIN
-Enter a desired strength: 500
-Enter a generic drug name: ALLOPURINOL
-Enter a desired strength: 300
-Enter a generic drug name: METOPROLOL SUCCINATE
+Enter a generic drug name: metoprolol succinate
 Enter a desired strength: 50
+Enter a generic drug name: metformin
+Enter a desired strength: 500
+Enter a generic drug name: allopurinol
+Enter a desired strength: 300
+{(&#39;METOPROLOL SUCCINATE&#39;, &#39;50&#39;): &#39;866436&#39;, (&#39;METFORMIN&#39;, &#39;500&#39;): &#39;861007&#39;, (&#39;ALLOPURINOL&#39;, &#39;300&#39;): &#39;197320&#39;}
 </pre>
 </div>
 </div>
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[89]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{(&#39;ALLOPURINOL&#39;, &#39;300&#39;): [],
- (&#39;METFORMIN&#39;, &#39;500&#39;): [],
- (&#39;METOPROLOL SUCCINATE&#39;, &#39;50&#39;): []}</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12232,56 +11926,34 @@ Enter a desired strength: 50
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="YIELDING-TABLES-FOR-EACH-DRUG-WITH-REQUIRED-DATA-FOR-COMPUTING-COST-WITH-BENEFICIARY_COST_FILE-(LONG)">YIELDING TABLES FOR EACH DRUG WITH REQUIRED DATA FOR COMPUTING COST WITH BENEFICIARY_COST_FILE (LONG)<a class="anchor-link" href="#YIELDING-TABLES-FOR-EACH-DRUG-WITH-REQUIRED-DATA-FOR-COMPUTING-COST-WITH-BENEFICIARY_COST_FILE-(LONG)">&#182;</a></h1>
+<h1 id="GETTING-DATA-FOR-FORMULARY_IDs-IN-REGION">GETTING DATA FOR FORMULARY_IDs IN REGION<a class="anchor-link" href="#GETTING-DATA-FOR-FORMULARY_IDs-IN-REGION">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="prompt input_prompt">In&nbsp;[198]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#WARNING: THIS TAKES A LONG-ISH TIME</span>
-<span class="k">for</span> <span class="n">drug</span><span class="p">,</span><span class="n">strength</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">:</span>
-    <span class="n">user_generics</span><span class="p">[(</span><span class="n">drug</span><span class="p">,</span><span class="n">strength</span><span class="p">)]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span>
-        <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s2">&quot;select RXCUI_DATA.FULL_GENERIC_NAME, PLAN_INFO.FORMULARY_ID,</span><span class="se">\</span>
-<span class="s2">                FORMULARY_DATA.RXCUI,FORMULARY_DATA.TIER_LEVEL_VALUE,</span><span class="se">\</span>
-<span class="s2">                FORMULARY_DATA.PRIOR_AUTHORIZATION_YN,PLAN_INFO.CONTRACT_ID,</span><span class="se">\</span>
-<span class="s2">                PLAN_INFO.PLAN_ID,PLAN_INFO.PLAN_NAME,PLAN_INFO.PREMIUM,PLAN_INFO.DEDUCTIBLE,</span><span class="se">\</span>
-<span class="s2">                BENEFICIARY_COST.COVERAGE_LEVEL,BENEFICIARY_COST.DAYS_SUPPLY,</span><span class="se">\</span>
-<span class="s2">                BENEFICIARY_COST.COST_AMT_PREF,BENEFICIARY_COST.COST_TYPE_PREF,</span><span class="se">\</span>
-<span class="s2">                PLAN_INFO.PDP_REGION_CODE </span><span class="se">\</span>
-<span class="s2">         from </span><span class="se">\</span>
-<span class="s2">         FORMULARY_DATA join PLAN_INFO </span><span class="se">\</span>
-<span class="s2">                        on substr(FORMULARY_DATA.FORMULARY_ID,4) = (PLAN_INFO.FORMULARY_ID) </span><span class="se">\</span>
-<span class="s2">         join RXCUI_DATA on FORMULARY_DATA.RXCUI = RXCUI_DATA.RXCUI </span><span class="se">\</span>
-<span class="s2">         join BENEFICIARY_COST on PLAN_INFO.CONTRACT_ID = BENEFICIARY_COST.CONTRACT_ID and </span><span class="se">\</span>
-<span class="s2">                                  PLAN_INFO.PLAN_ID = BENEFICIARY_COST.PLAN_ID and </span><span class="se">\</span>
-<span class="s2">                                  cast(FORMULARY_DATA.TIER_LEVEL_VALUE as integer) = </span><span class="se">\</span>
-<span class="s2">                                                cast(BENEFICIARY_COST.TIER as integer) </span><span class="se">\</span>
-<span class="s2">         where PLAN_INFO.PDP_REGION_CODE is &#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user_pdp_region_code</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
-<span class="s2">               PLAN_INFO.CONTRACT_ID like &#39;S%&#39; and </span><span class="se">\</span>
-<span class="s2">               upper(RXCUI_DATA.FULL_GENERIC_NAME) like &#39;%&quot;</span><span class="o">+</span><span class="n">drug</span><span class="o">+</span><span class="s2">&quot;%&#39; and </span><span class="se">\</span>
-<span class="s2">               RXCUI_DATA.STRENGTH like &#39;&quot;</span><span class="o">+</span><span class="n">strength</span><span class="o">+</span><span class="s2">&quot;%&#39; and </span><span class="se">\</span>
-<span class="s2">               (cast(BENEFICIARY_COST.COVERAGE_LEVEL as integer) = 0 or </span><span class="se">\</span>
-<span class="s2">                cast(BENEFICIARY_COST.COVERAGE_LEVEL as integer) = 1) and </span><span class="se">\</span>
-<span class="s2">               BENEFICIARY_COST.DAYS_SUPPLY = 1 and </span><span class="se">\</span>
-<span class="s2">               cast(BENEFICIARY_COST.COST_TYPE_PREF as integer) = 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()),</span>
-        <span class="n">conn</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;FORMULARY_ID&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">:</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.CONTRACT_NAME, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.PLAN_NAME, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.CONTRACT_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.PLAN_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.SEGMENT_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.FORMULARY_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.PREMIUM, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.DEDUCTIBLE </span><span class="se">\</span>
+<span class="s2">            from </span><span class="se">\</span>
+<span class="s2">                FORMULARY_DATA join PLAN_INFO </span><span class="se">\</span>
+<span class="s2">                on substr(FORMULARY_DATA.FORMULARY_ID, 4) = PLAN_INFO.FORMULARY_ID </span><span class="se">\</span>
+<span class="s2">            where </span><span class="se">\</span>
+<span class="s2">                  PLAN_INFO.PDP_REGION_CODE is &#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user_pdp_region_code</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
+<span class="s2">                  PLAN_INFO.CONTRACT_ID like &#39;S%&#39;</span><span class="se">\</span>
+<span class="s2">            order by PLAN_INFO.FORMULARY_ID&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>\
+<span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;FORMULARY_ID&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>\
+<span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12300,436 +11972,770 @@ Enter a desired strength: 50
 
 <div class="output_html rendered_html output_subarea ">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>FULL_GENERIC_NAME</th>
-      <th>FORMULARY_ID</th>
-      <th>RXCUI</th>
-      <th>TIER_LEVEL_VALUE</th>
-      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>CONTRACT_NAME</th>
+      <th>PLAN_NAME</th>
       <th>CONTRACT_ID</th>
       <th>PLAN_ID</th>
-      <th>PLAN_NAME</th>
+      <th>SEGMENT_ID</th>
+      <th>FORMULARY_ID</th>
       <th>PREMIUM</th>
       <th>DEDUCTIBLE</th>
-      <th>COVERAGE_LEVEL</th>
-      <th>DAYS_SUPPLY</th>
-      <th>COST_AMT_PREF</th>
-      <th>COST_TYPE_PREF</th>
-      <th>PDP_REGION_CODE</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>24 HR Metformin hydrochloride 500 MG / saxagli...</td>
-      <td>18039</td>
-      <td>1043582</td>
-      <td>3</td>
-      <td>N</td>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
       <td>S5820</td>
       <td>3</td>
-      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>0</td>
+      <td>18039</td>
       <td>86.6</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>37.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>24 HR Metformin hydrochloride 500 MG / saxagli...</td>
-      <td>18040</td>
-      <td>1043582</td>
-      <td>3</td>
-      <td>N</td>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>S5921</td>
       <td>349</td>
-      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>0</td>
+      <td>18040</td>
       <td>33.2</td>
       <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>30.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>24 HR Metformin hydrochloride 500 MG / saxagli...</td>
-      <td>18041</td>
-      <td>1043582</td>
-      <td>3</td>
-      <td>N</td>
+      <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
+      <td>Symphonix Value Rx (PDP)</td>
       <td>S0522</td>
       <td>4</td>
-      <td>Symphonix Value Rx (PDP)</td>
+      <td>0</td>
+      <td>18041</td>
       <td>30.4</td>
       <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>35.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>24 HR Metformin hydrochloride 500 MG / saxagli...</td>
-      <td>18130</td>
-      <td>1043582</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
-      <td>47.7</td>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>0</td>
+      <td>18043</td>
+      <td>26.8</td>
       <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>34.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>24 HR Metformin hydrochloride 500 MG / saxagli...</td>
-      <td>18131</td>
-      <td>1043582</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5993</td>
-      <td>3</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
-      <td>99.6</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>32.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Saver (PDP)</td>
+      <td>S5810</td>
+      <td>38</td>
+      <td>0</td>
+      <td>18056</td>
+      <td>34.9</td>
+      <td>325.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18056</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5810</td>
-      <td>38</td>
-      <td>Aetna Medicare Rx Saver (PDP)</td>
-      <td>34.9</td>
-      <td>325.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>30.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>0</td>
+      <td>18059</td>
+      <td>56.2</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18057</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>19.7</td>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
       <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>47.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18059</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>First Health Part D Value Plus (PDP)</td>
-      <td>56.2</td>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>0</td>
+      <td>18083</td>
+      <td>52.9</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>47.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18082</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>74.8</td>
-      <td>405.0</td>
-      <td>1.0</td>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
       <td>1</td>
-      <td>30.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18083</td>
-      <td>1243848</td>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
       <td>3</td>
-      <td>N</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
-      <td>52.9</td>
+      <td>0</td>
+      <td>18131</td>
+      <td>99.6</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>42.0</td>
-      <td>1.0</td>
-      <td>4</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
+      <td>0</td>
+      <td>18152</td>
+      <td>22.6</td>
+      <td>405.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18154</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
       <td>S5660</td>
-      <td>106</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
-      <td>34.0</td>
-      <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>18.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>207</td>
+      <td>0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18155</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>91.7</td>
-      <td>350.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>42.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>131</td>
+      <td>0</td>
+      <td>18254</td>
+      <td>37.0</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18256</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
       <td>S5884</td>
-      <td>62</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>77.8</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>42.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>150</td>
+      <td>0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18419</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>43.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18420</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S5601</td>
-      <td>9</td>
-      <td>SilverScript Plus (PDP)</td>
-      <td>84.6</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>35.0</td>
-      <td>1.0</td>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
       <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18439</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S4802</td>
-      <td>101</td>
-      <td>WellCare Extra (PDP)</td>
-      <td>79.5</td>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>0</td>
+      <td>18419</td>
+      <td>34.3</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>36.0</td>
-      <td>1.0</td>
-      <td>4</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18443</td>
-      <td>1243848</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S4802</td>
-      <td>78</td>
-      <td>WellCare Classic (PDP)</td>
-      <td>36.9</td>
-      <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>37.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>Modified 24 HR Metformin hydrochloride 500 MG ...</td>
-      <td>18152</td>
-      <td>1807915</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>22.6</td>
-      <td>405.0</td>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
       <td>0.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>0</td>
+      <td>18443</td>
+      <td>36.9</td>
+      <td>405.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="YIELDING-PLAN-SELECTION-OUTPUT-TABLE">YIELDING PLAN SELECTION OUTPUT TABLE<a class="anchor-link" href="#YIELDING-PLAN-SELECTION-OUTPUT-TABLE">&#182;</a></h1><h6 id="EXTREMELY-FAST-NOW">EXTREMELY FAST NOW<a class="anchor-link" href="#EXTREMELY-FAST-NOW">&#182;</a></h6><ol>
+<li>CONSTRUCTING INITIAL TABLE</li>
+<li>PUTTING EACH DRUG IN THE TABLE, COMPUTING COST</li>
+<li>SHOWING TOTAL COST FOR EACH ITERATION</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[199]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.CONTRACT_NAME, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.PLAN_NAME, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.CONTRACT_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.PLAN_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.SEGMENT_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.FORMULARY_ID, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.PREMIUM, </span><span class="se">\</span>
+<span class="s2">                    PLAN_INFO.DEDUCTIBLE </span><span class="se">\</span>
+<span class="s2">            from </span><span class="se">\</span>
+<span class="s2">                FORMULARY_DATA join PLAN_INFO </span><span class="se">\</span>
+<span class="s2">                on substr(FORMULARY_DATA.FORMULARY_ID, 4) = PLAN_INFO.FORMULARY_ID </span><span class="se">\</span>
+<span class="s2">            where </span><span class="se">\</span>
+<span class="s2">                  PLAN_INFO.PDP_REGION_CODE is &#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user_pdp_region_code</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
+<span class="s2">                  PLAN_INFO.CONTRACT_ID like &#39;S%&#39;</span><span class="se">\</span>
+<span class="s2">            order by PLAN_INFO.FORMULARY_ID&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>\
+<span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;FORMULARY_ID&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>\
+<span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">:</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">out</span><span class="p">,</span>
+               <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s2">&quot;select </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.CONTRACT_NAME, </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.PLAN_NAME, </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.CONTRACT_ID, </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.PLAN_ID, </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.SEGMENT_ID, </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.FORMULARY_ID, </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.PREMIUM, </span><span class="se">\</span>
+<span class="s2">                        PLAN_INFO.DEDUCTIBLE, </span><span class="se">\</span>
+<span class="s2">                        FORMULARY_DATA.RXCUI as &quot;</span><span class="o">+</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_RXCUI, </span><span class="se">\</span>
+<span class="s2">                        FORMULARY_DATA.PRIOR_AUTHORIZATION_YN as &quot;</span><span class="o">+</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_PA, </span><span class="se">\</span>
+<span class="s2">                        FORMULARY_DATA.TIER_LEVEL_VALUE as &quot;</span><span class="o">+</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_TIER, </span><span class="se">\</span>
+<span class="s2">                        BENEFICIARY_COST.COST_AMT_PREF as &quot;</span><span class="o">+</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;_CAP </span><span class="se">\</span>
+<span class="s2">                from </span><span class="se">\</span>
+<span class="s2">                    FORMULARY_DATA join PLAN_INFO </span><span class="se">\</span>
+<span class="s2">                        on substr(FORMULARY_DATA.FORMULARY_ID, 4) = PLAN_INFO.FORMULARY_ID </span><span class="se">\</span>
+<span class="s2">                    join BENEFICIARY_COST </span><span class="se">\</span>
+<span class="s2">                        on PLAN_INFO.CONTRACT_ID = BENEFICIARY_COST.CONTRACT_ID and </span><span class="se">\</span>
+<span class="s2">                           PLAN_INFO.PLAN_ID = BENEFICIARY_COST.PLAN_ID and </span><span class="se">\</span>
+<span class="s2">                           cast(FORMULARY_DATA.TIER_LEVEL_VALUE as integer) = </span><span class="se">\</span>
+<span class="s2">                                                    cast(BENEFICIARY_COST.TIER as integer) </span><span class="se">\</span>
+<span class="s2">                where </span><span class="se">\</span>
+<span class="s2">                      PLAN_INFO.PDP_REGION_CODE is &#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">user_pdp_region_code</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
+<span class="s2">                      FORMULARY_DATA.RXCUI is &quot;</span><span class="o">+</span><span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; and </span><span class="se">\</span>
+<span class="s2">                      PLAN_INFO.CONTRACT_ID like &#39;S%&#39; and </span><span class="se">\</span>
+<span class="s2">                      (cast(BENEFICIARY_COST.COVERAGE_LEVEL as integer) = 0 or </span><span class="se">\</span>
+<span class="s2">                      cast(BENEFICIARY_COST.COVERAGE_LEVEL as integer) = 1) and </span><span class="se">\</span>
+<span class="s2">                      BENEFICIARY_COST.DAYS_SUPPLY = 1 and </span><span class="se">\</span>
+<span class="s2">                      cast(BENEFICIARY_COST.COST_TYPE_PREF as integer) = 1</span><span class="se">\</span>
+<span class="s2">                order by PLAN_INFO.FORMULARY_ID&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()),</span><span class="n">conn</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;FORMULARY_ID&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>\
+    <span class="p">[[</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_RXCUI&#39;</span><span class="p">,</span>
+      <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_PA&#39;</span><span class="p">,</span>
+      <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_TIER&#39;</span><span class="p">,</span>
+      <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_CAP&#39;</span><span class="p">]]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1">#ADD IN COST COLUMN</span>
+    <span class="k">if</span> <span class="s1">&#39;TOTAL_COST&#39;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">]</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;CAP&#39;</span><span class="p">]]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">]</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CONTRACT_NAME</th>
+      <th>PLAN_NAME</th>
+      <th>CONTRACT_ID</th>
+      <th>PLAN_ID</th>
+      <th>SEGMENT_ID</th>
+      <th>FORMULARY_ID</th>
+      <th>PREMIUM</th>
+      <th>DEDUCTIBLE</th>
+      <th>METOPROLOL_SUCCINATE_RXCUI</th>
+      <th>METOPROLOL_SUCCINATE_PA</th>
+      <th>METOPROLOL_SUCCINATE_TIER</th>
+      <th>METOPROLOL_SUCCINATE_CAP</th>
+      <th>TOTAL_COST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>0</td>
+      <td>18059</td>
+      <td>56.2</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>80.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>96.6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>0</td>
+      <td>18083</td>
+      <td>52.9</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
       <td>1</td>
       <td>4.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>100.9</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18043</td>
-      <td>860975</td>
-      <td>1</td>
+      <th>3</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
+      <td>866436</td>
       <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>161.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18131</td>
+      <td>99.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>195.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>0</td>
+      <td>18419</td>
+      <td>34.3</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>14.0</td>
+      <td>202.3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>10.0</td>
+      <td>206.6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Saver (PDP)</td>
+      <td>S5810</td>
+      <td>38</td>
+      <td>0</td>
+      <td>18056</td>
+      <td>34.9</td>
+      <td>325.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>383.9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
       <td>S5921</td>
       <td>386</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>0</td>
+      <td>18043</td>
       <td>26.8</td>
       <td>405.0</td>
-      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>431.8</td>
     </tr>
     <tr>
-      <th>45</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18254</td>
-      <td>860975</td>
-      <td>1</td>
+      <th>9</th>
+      <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
+      <td>Symphonix Value Rx (PDP)</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>0</td>
+      <td>18041</td>
+      <td>30.4</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>447.4</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>0</td>
+      <td>18040</td>
+      <td>33.2</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>450.2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>0</td>
+      <td>18443</td>
+      <td>36.9</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>453.9</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
       <td>S5884</td>
       <td>131</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>0</td>
+      <td>18254</td>
       <td>37.0</td>
       <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
       <td>1.0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>454.0</td>
     </tr>
     <tr>
-      <th>46</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18255</td>
-      <td>860975</td>
-      <td>1</td>
+      <th>13</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>460.7</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
       <td>S5884</td>
       <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>0</td>
+      <td>18255</td>
       <td>20.4</td>
       <td>405.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>473.4</td>
     </tr>
     <tr>
-      <th>49</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18364</td>
-      <td>860975</td>
-      <td>2</td>
+      <th>15</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>475.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
+      <td>0</td>
+      <td>18152</td>
+      <td>22.6</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>475.6</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>491.8</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
       <td>S7694</td>
       <td>4</td>
-      <td>EnvisionRxPlus (PDP)</td>
+      <td>0</td>
+      <td>18364</td>
       <td>51.0</td>
       <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
       <td>3.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>492.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>3</td>
+      <td>36.0</td>
+      <td>511.5</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>525.7</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>548.7</td>
     </tr>
   </tbody>
 </table>
@@ -12746,436 +12752,482 @@ Enter a desired strength: 50
 
 <div class="output_html rendered_html output_subarea ">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>FULL_GENERIC_NAME</th>
-      <th>FORMULARY_ID</th>
-      <th>RXCUI</th>
-      <th>TIER_LEVEL_VALUE</th>
-      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>CONTRACT_NAME</th>
+      <th>PLAN_NAME</th>
       <th>CONTRACT_ID</th>
       <th>PLAN_ID</th>
-      <th>PLAN_NAME</th>
+      <th>SEGMENT_ID</th>
+      <th>FORMULARY_ID</th>
       <th>PREMIUM</th>
       <th>DEDUCTIBLE</th>
-      <th>COVERAGE_LEVEL</th>
-      <th>DAYS_SUPPLY</th>
-      <th>COST_AMT_PREF</th>
-      <th>COST_TYPE_PREF</th>
-      <th>PDP_REGION_CODE</th>
+      <th>METOPROLOL_SUCCINATE_RXCUI</th>
+      <th>METOPROLOL_SUCCINATE_PA</th>
+      <th>METOPROLOL_SUCCINATE_TIER</th>
+      <th>METOPROLOL_SUCCINATE_CAP</th>
+      <th>METFORMIN_RXCUI</th>
+      <th>METFORMIN_PA</th>
+      <th>METFORMIN_TIER</th>
+      <th>METFORMIN_CAP</th>
+      <th>TOTAL_COST</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18039</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5820</td>
-      <td>3</td>
-      <td>AARP MedicareRx Preferred (PDP)</td>
-      <td>86.6</td>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
       <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>108.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>0</td>
+      <td>18083</td>
+      <td>52.9</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>112.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>0</td>
+      <td>18059</td>
+      <td>56.2</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>6.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18040</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5921</td>
-      <td>349</td>
-      <td>AARP MedicareRx Saver Plus (PDP)</td>
-      <td>33.2</td>
-      <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18041</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S0522</td>
-      <td>4</td>
-      <td>Symphonix Value Rx (PDP)</td>
-      <td>30.4</td>
-      <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>152.2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18043</td>
-      <td>197320</td>
-      <td>1</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
+      <td>866436</td>
       <td>N</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>26.8</td>
-      <td>405.0</td>
-      <td>0.0</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>161.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>0</td>
+      <td>18419</td>
+      <td>34.3</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>14.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>202.3</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18056</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5810</td>
-      <td>38</td>
-      <td>Aetna Medicare Rx Saver (PDP)</td>
-      <td>34.9</td>
-      <td>325.0</td>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18131</td>
+      <td>99.6</td>
       <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>207.6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>10.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>218.6</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18057</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Saver (PDP)</td>
       <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>19.7</td>
-      <td>405.0</td>
-      <td>0.0</td>
+      <td>38</td>
+      <td>0</td>
+      <td>18056</td>
+      <td>34.9</td>
+      <td>325.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>0.0</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>395.9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>0</td>
+      <td>18040</td>
+      <td>33.2</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>462.2</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18059</td>
-      <td>197320</td>
-      <td>1</td>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>0</td>
+      <td>18443</td>
+      <td>36.9</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>First Health Part D Value Plus (PDP)</td>
-      <td>56.2</td>
-      <td>0.0</td>
+      <td>2</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>465.9</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18082</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>74.8</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>131</td>
+      <td>0</td>
+      <td>18254</td>
+      <td>37.0</td>
       <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>466.0</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18083</td>
-      <td>197320</td>
-      <td>1</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
-      <td>52.9</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
+      <td>2</td>
       <td>4.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>473.4</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18130</td>
-      <td>197320</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
-      <td>47.7</td>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>0</td>
+      <td>18043</td>
+      <td>26.8</td>
       <td>405.0</td>
-      <td>1.0</td>
+      <td>866436</td>
+      <td>N</td>
       <td>1</td>
-      <td>8.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>0.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>479.8</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18131</td>
-      <td>197320</td>
-      <td>1</td>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
-      <td>S5993</td>
-      <td>3</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
-      <td>99.6</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>2.0</td>
+      <td>484.7</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18152</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
       <td>S5660</td>
-      <td>220</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>22.6</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
       <td>405.0</td>
-      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>487.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>503.8</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18154</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
       <td>S5660</td>
-      <td>106</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
-      <td>34.0</td>
+      <td>220</td>
+      <td>0</td>
+      <td>18152</td>
+      <td>22.6</td>
       <td>405.0</td>
-      <td>1.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>3.0</td>
+      <td>511.6</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18155</td>
-      <td>197320</td>
-      <td>1</td>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
+      <td>0.0</td>
+      <td>866436</td>
       <td>N</td>
+      <td>3</td>
+      <td>36.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>523.5</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
       <td>S5660</td>
       <td>207</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>0</td>
+      <td>18155</td>
       <td>91.7</td>
       <td>350.0</td>
-      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>0.0</td>
+      <td>525.7</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18254</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>131</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
-      <td>37.0</td>
-      <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
       <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>528.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18255</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>20.4</td>
+      <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
+      <td>Symphonix Value Rx (PDP)</td>
+      <td>S0522</td>
+      <td>4</td>
+      <td>0</td>
+      <td>18041</td>
+      <td>30.4</td>
       <td>405.0</td>
-      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>543.4</td>
     </tr>
     <tr>
-      <th>22</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18256</td>
-      <td>197320</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>62</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>77.8</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <th>21</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
       <td>1</td>
-      <td>7.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18364</td>
-      <td>197320</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S7694</td>
-      <td>4</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>51.0</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
       <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18419</td>
-      <td>197320</td>
+      <td>866436</td>
+      <td>N</td>
       <td>2</td>
+      <td>8.0</td>
+      <td>861007</td>
       <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>14.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18420</td>
-      <td>197320</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5601</td>
-      <td>9</td>
-      <td>SilverScript Plus (PDP)</td>
-      <td>84.6</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>5.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18439</td>
-      <td>197320</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S4802</td>
-      <td>101</td>
-      <td>WellCare Extra (PDP)</td>
-      <td>79.5</td>
-      <td>0.0</td>
-      <td>1.0</td>
       <td>1</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18443</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S4802</td>
-      <td>78</td>
-      <td>WellCare Classic (PDP)</td>
-      <td>36.9</td>
-      <td>405.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>548.7</td>
     </tr>
   </tbody>
 </table>
@@ -13192,439 +13244,578 @@ Enter a desired strength: 50
 
 <div class="output_html rendered_html output_subarea ">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>FULL_GENERIC_NAME</th>
-      <th>FORMULARY_ID</th>
-      <th>RXCUI</th>
-      <th>TIER_LEVEL_VALUE</th>
-      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>CONTRACT_NAME</th>
+      <th>PLAN_NAME</th>
       <th>CONTRACT_ID</th>
       <th>PLAN_ID</th>
-      <th>PLAN_NAME</th>
+      <th>SEGMENT_ID</th>
+      <th>FORMULARY_ID</th>
       <th>PREMIUM</th>
       <th>DEDUCTIBLE</th>
-      <th>COVERAGE_LEVEL</th>
-      <th>DAYS_SUPPLY</th>
-      <th>COST_AMT_PREF</th>
-      <th>COST_TYPE_PREF</th>
-      <th>PDP_REGION_CODE</th>
+      <th>METOPROLOL_SUCCINATE_RXCUI</th>
+      <th>METOPROLOL_SUCCINATE_PA</th>
+      <th>...</th>
+      <th>METOPROLOL_SUCCINATE_CAP</th>
+      <th>METFORMIN_RXCUI</th>
+      <th>METFORMIN_PA</th>
+      <th>METFORMIN_TIER</th>
+      <th>METFORMIN_CAP</th>
+      <th>ALLOPURINOL_RXCUI</th>
+      <th>ALLOPURINOL_PA</th>
+      <th>ALLOPURINOL_TIER</th>
+      <th>ALLOPURINOL_CAP</th>
+      <th>TOTAL_COST</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18039</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5820</td>
-      <td>3</td>
-      <td>AARP MedicareRx Preferred (PDP)</td>
-      <td>86.6</td>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>0</td>
+      <td>18083</td>
+      <td>52.9</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>10.0</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>124.9</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18040</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
       <td>866436</td>
-      <td>1</td>
       <td>N</td>
-      <td>S5921</td>
-      <td>349</td>
-      <td>AARP MedicareRx Saver Plus (PDP)</td>
-      <td>33.2</td>
-      <td>405.0</td>
-      <td>1.0</td>
+      <td>...</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>161.8</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18041</td>
+      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>0</td>
+      <td>18059</td>
+      <td>56.2</td>
+      <td>0.0</td>
       <td>866436</td>
-      <td>1</td>
       <td>N</td>
-      <td>S0522</td>
-      <td>4</td>
-      <td>Symphonix Value Rx (PDP)</td>
-      <td>30.4</td>
-      <td>405.0</td>
-      <td>1.0</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>197320</td>
+      <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>164.2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18043</td>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
       <td>866436</td>
-      <td>1</td>
       <td>N</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>26.8</td>
-      <td>405.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>180.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18131</td>
+      <td>99.6</td>
       <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>207.6</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18056</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5810</td>
-      <td>38</td>
-      <td>Aetna Medicare Rx Saver (PDP)</td>
-      <td>34.9</td>
-      <td>325.0</td>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>0</td>
+      <td>18419</td>
+      <td>34.3</td>
       <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>14.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>214.3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>10.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>230.6</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18057</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Saver (PDP)</td>
       <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>19.7</td>
-      <td>405.0</td>
-      <td>0.0</td>
+      <td>38</td>
+      <td>0</td>
+      <td>18056</td>
+      <td>34.9</td>
+      <td>325.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>3.0</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>407.9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>131</td>
+      <td>0</td>
+      <td>18254</td>
+      <td>37.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>478.0</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18059</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
       <td>866436</td>
-      <td>2</td>
       <td>N</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>First Health Part D Value Plus (PDP)</td>
-      <td>56.2</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>...</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>2.0</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>485.4</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18082</td>
-      <td>866436</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>74.8</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
       <td>405.0</td>
-      <td>1.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>487.0</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18083</td>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>0</td>
+      <td>18043</td>
+      <td>26.8</td>
+      <td>405.0</td>
       <td>866436</td>
-      <td>1</td>
       <td>N</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
-      <td>52.9</td>
+      <td>...</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>4.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>491.8</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18130</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
-      <td>47.7</td>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
       <td>405.0</td>
-      <td>1.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>8.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>2.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>508.7</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18131</td>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>0</td>
+      <td>18040</td>
+      <td>33.2</td>
+      <td>405.0</td>
       <td>866436</td>
-      <td>2</td>
       <td>N</td>
-      <td>S5993</td>
-      <td>3</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
-      <td>99.6</td>
-      <td>0.0</td>
+      <td>...</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>8.0</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>510.2</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18152</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>22.6</td>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
       <td>405.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>4.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>515.8</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
+      <td>Symphonix Value Rx (PDP)</td>
+      <td>S0522</td>
       <td>4</td>
+      <td>0</td>
+      <td>18041</td>
+      <td>30.4</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>543.4</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18154</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5660</td>
-      <td>106</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
-      <td>34.0</td>
-      <td>405.0</td>
-      <td>1.0</td>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
       <td>1</td>
-      <td>3.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>548.7</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18155</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>91.7</td>
-      <td>350.0</td>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
       <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>36.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>7.0</td>
       <td>1.0</td>
-      <td>4</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>559.5</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>0</td>
+      <td>18443</td>
+      <td>36.9</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>561.9</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18254</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>131</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
-      <td>37.0</td>
-      <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
       <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>5.0</td>
+      <td>588.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18255</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>20.4</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
+      <td>0</td>
+      <td>18152</td>
+      <td>22.6</td>
       <td>405.0</td>
-      <td>0.0</td>
-      <td>1</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
       <td>4.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18256</td>
-      <td>866436</td>
-      <td>2</td>
+      <td>861007</td>
       <td>N</td>
-      <td>S5884</td>
-      <td>62</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>77.8</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>7.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18364</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S7694</td>
-      <td>4</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>51.0</td>
-      <td>405.0</td>
-      <td>1.0</td>
       <td>1</td>
       <td>3.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>595.6</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18419</td>
+      <th>21</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
       <td>866436</td>
-      <td>2</td>
       <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>...</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
       <td>14.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18420</td>
-      <td>866436</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5601</td>
-      <td>9</td>
-      <td>SilverScript Plus (PDP)</td>
-      <td>84.6</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18439</td>
-      <td>866436</td>
-      <td>3</td>
-      <td>N</td>
-      <td>S4802</td>
-      <td>101</td>
-      <td>WellCare Extra (PDP)</td>
-      <td>79.5</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>36.0</td>
-      <td>1.0</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18443</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S4802</td>
-      <td>78</td>
-      <td>WellCare Classic (PDP)</td>
-      <td>36.9</td>
-      <td>405.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
+      <td>693.7</td>
     </tr>
   </tbody>
 </table>
+<p>22 rows × 21 columns</p>
 </div>
 </div>
 
@@ -13638,47 +13829,17 @@ Enter a desired strength: 50
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="COMPUTING-COSTS-ACROSS-ROWS">COMPUTING COSTS ACROSS ROWS<a class="anchor-link" href="#COMPUTING-COSTS-ACROSS-ROWS">&#182;</a></h1>
+<h1 id="FULL-FINAL-OUTPUT,-SORTED-BY-COST">FULL FINAL OUTPUT, SORTED BY COST<a class="anchor-link" href="#FULL-FINAL-OUTPUT,-SORTED-BY-COST">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="prompt input_prompt">In&nbsp;[200]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">:</span>
-    <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;COST_AMT_PREF&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span> <span class="o">+</span> \
-                                        <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span> <span class="o">+</span> \
-                                        <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">]</span>
-    <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[93]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">top_five</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span><span class="n">user_generics</span><span class="p">[</span><span class="n">key</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">user_generics</span><span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">top_five</span><span class="p">:</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">top_five</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">22</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13697,428 +13858,574 @@ Enter a desired strength: 50
 
 <div class="output_html rendered_html output_subarea ">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>FULL_GENERIC_NAME</th>
-      <th>FORMULARY_ID</th>
-      <th>RXCUI</th>
-      <th>TIER_LEVEL_VALUE</th>
-      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>CONTRACT_NAME</th>
+      <th>PLAN_NAME</th>
       <th>CONTRACT_ID</th>
       <th>PLAN_ID</th>
-      <th>PLAN_NAME</th>
+      <th>SEGMENT_ID</th>
+      <th>FORMULARY_ID</th>
       <th>PREMIUM</th>
       <th>DEDUCTIBLE</th>
-      <th>COVERAGE_LEVEL</th>
-      <th>DAYS_SUPPLY</th>
-      <th>COST_AMT_PREF</th>
-      <th>COST_TYPE_PREF</th>
-      <th>PDP_REGION_CODE</th>
+      <th>METOPROLOL_SUCCINATE_RXCUI</th>
+      <th>METOPROLOL_SUCCINATE_PA</th>
+      <th>METOPROLOL_SUCCINATE_TIER</th>
+      <th>METOPROLOL_SUCCINATE_CAP</th>
+      <th>METFORMIN_RXCUI</th>
+      <th>METFORMIN_PA</th>
+      <th>METFORMIN_TIER</th>
+      <th>METFORMIN_CAP</th>
+      <th>ALLOPURINOL_RXCUI</th>
+      <th>ALLOPURINOL_PA</th>
+      <th>ALLOPURINOL_TIER</th>
+      <th>ALLOPURINOL_CAP</th>
       <th>TOTAL_COST</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>46</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18255</td>
-      <td>860975</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>20.4</td>
-      <td>405.0</td>
+      <th>0</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>0</td>
+      <td>18083</td>
+      <td>52.9</td>
       <td>0.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>661.8</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Modified 24 HR Metformin hydrochloride 500 MG ...</td>
-      <td>18152</td>
-      <td>1807915</td>
-      <td>2</td>
+      <td>866436</td>
       <td>N</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>22.6</td>
-      <td>405.0</td>
-      <td>0.0</td>
       <td>1</td>
       <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>724.2</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>124.9</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18043</td>
-      <td>860975</td>
-      <td>1</td>
+      <th>1</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
+      <td>866436</td>
       <td>N</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>26.8</td>
-      <td>405.0</td>
-      <td>0.0</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>726.6</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>161.8</td>
     </tr>
     <tr>
-      <th>45</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18254</td>
-      <td>860975</td>
-      <td>1</td>
+      <th>2</th>
+      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>0</td>
+      <td>18059</td>
+      <td>56.2</td>
+      <td>0.0</td>
+      <td>866436</td>
       <td>N</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>164.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>180.6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18131</td>
+      <td>99.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>207.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>S5601</td>
+      <td>8</td>
+      <td>0</td>
+      <td>18419</td>
+      <td>34.3</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>14.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>214.3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>10.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>230.6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Saver (PDP)</td>
+      <td>S5810</td>
+      <td>38</td>
+      <td>0</td>
+      <td>18056</td>
+      <td>34.9</td>
+      <td>325.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>407.9</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
       <td>S5884</td>
       <td>131</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>0</td>
+      <td>18254</td>
       <td>37.0</td>
       <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>478.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
+      <td>485.4</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>487.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>0</td>
+      <td>18043</td>
+      <td>26.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>491.8</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>508.7</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>0</td>
+      <td>18040</td>
+      <td>33.2</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>510.2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>515.8</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
+      <td>Symphonix Value Rx (PDP)</td>
+      <td>S0522</td>
       <td>4</td>
-      <td>849.0</td>
+      <td>0</td>
+      <td>18041</td>
+      <td>30.4</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>543.4</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>24 HR Metformin hydrochloride 500 MG / sitagli...</td>
-      <td>18419</td>
-      <td>1243848</td>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>548.7</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
       <td>3</td>
+      <td>36.0</td>
+      <td>861007</td>
       <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
-      <td>0.0</td>
-      <td>1.0</td>
       <td>1</td>
-      <td>43.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>927.6</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FULL_GENERIC_NAME</th>
-      <th>FORMULARY_ID</th>
-      <th>RXCUI</th>
-      <th>TIER_LEVEL_VALUE</th>
-      <th>PRIOR_AUTHORIZATION_YN</th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>PLAN_NAME</th>
-      <th>PREMIUM</th>
-      <th>DEDUCTIBLE</th>
-      <th>COVERAGE_LEVEL</th>
-      <th>DAYS_SUPPLY</th>
-      <th>COST_AMT_PREF</th>
-      <th>COST_TYPE_PREF</th>
-      <th>PDP_REGION_CODE</th>
-      <th>TOTAL_COST</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>24</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18419</td>
       <td>197320</td>
+      <td>N</td>
       <td>2</td>
-      <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>14.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>579.6</td>
+      <td>3.0</td>
+      <td>559.5</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18057</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>19.7</td>
+      <th>18</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>0</td>
+      <td>18443</td>
+      <td>36.9</td>
       <td>405.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>641.4</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18255</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>20.4</td>
-      <td>405.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>661.8</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18083</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
-      <td>52.9</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>682.8</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18059</td>
-      <td>197320</td>
-      <td>1</td>
-      <td>N</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>First Health Part D Value Plus (PDP)</td>
-      <td>56.2</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>686.4</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FULL_GENERIC_NAME</th>
-      <th>FORMULARY_ID</th>
-      <th>RXCUI</th>
-      <th>TIER_LEVEL_VALUE</th>
-      <th>PRIOR_AUTHORIZATION_YN</th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>PLAN_NAME</th>
-      <th>PREMIUM</th>
-      <th>DEDUCTIBLE</th>
-      <th>COVERAGE_LEVEL</th>
-      <th>DAYS_SUPPLY</th>
-      <th>COST_AMT_PREF</th>
-      <th>COST_TYPE_PREF</th>
-      <th>PDP_REGION_CODE</th>
-      <th>TOTAL_COST</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>24</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18419</td>
       <td>866436</td>
-      <td>2</td>
       <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
-      <td>0.0</td>
+      <td>2</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>14.0</td>
       <td>1.0</td>
-      <td>4</td>
-      <td>579.6</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>561.9</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18057</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>19.7</td>
+      <th>19</th>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
+      <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
       <td>405.0</td>
-      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
       <td>3.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>677.4</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18083</td>
-      <td>866436</td>
-      <td>1</td>
+      <td>197320</td>
       <td>N</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
-      <td>52.9</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>682.8</td>
+      <td>2</td>
+      <td>5.0</td>
+      <td>588.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18255</td>
-      <td>866436</td>
-      <td>2</td>
-      <td>N</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>20.4</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
+      <td>0</td>
+      <td>18152</td>
+      <td>22.6</td>
       <td>405.0</td>
-      <td>0.0</td>
-      <td>1</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
       <td>4.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>697.8</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>595.6</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18059</td>
+      <th>21</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
       <td>866436</td>
-      <td>2</td>
       <td>N</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>First Health Part D Value Plus (PDP)</td>
-      <td>56.2</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
       <td>1</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>698.4</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>14.0</td>
+      <td>693.7</td>
     </tr>
   </tbody>
 </table>
@@ -14135,31 +14442,23 @@ Enter a desired strength: 50
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="CHEAPEST-COMBINATION-OF-DRUGS">CHEAPEST COMBINATION OF DRUGS<a class="anchor-link" href="#CHEAPEST-COMBINATION-OF-DRUGS">&#182;</a></h1>
+<h1 id="FINDING-LOCATIONS-IN-ZIP-THAT-OFFER-CHEAPEST-PLAN">FINDING LOCATIONS IN ZIP THAT OFFER CHEAPEST PLAN<a class="anchor-link" href="#FINDING-LOCATIONS-IN-ZIP-THAT-OFFER-CHEAPEST-PLAN">&#182;</a></h1><h5 id="TAKES-A-LONGER-TIME-BECAUSE-PNF_DATA-IS-HUGE">TAKES A LONGER TIME BECAUSE PNF_DATA IS HUGE<a class="anchor-link" href="#TAKES-A-LONGER-TIME-BECAUSE-PNF_DATA-IS-HUGE">&#182;</a></h5>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="prompt input_prompt">In&nbsp;[218]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cheapest_combo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">top_five</span><span class="p">:</span>
-    <span class="n">cheapest_combo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cheapest_combo</span><span class="p">,</span><span class="n">top_five</span><span class="p">[</span><span class="n">key</span><span class="p">][:</span><span class="mi">1</span><span class="p">]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[116]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cheapest_combo</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select NCPDP.PHARMACY_NAME, NCPDP.PHONE, PNF_DATA.* </span><span class="se">\</span>
+<span class="s2">             from NCPDP, PNF_DATA</span><span class="se">\</span>
+<span class="s2">             where PNF_DATA.CONTRACT_ID=&#39;&quot;</span><span class="o">+</span><span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">CONTRACT_ID</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
+<span class="s2">                   cast(PNF_DATA.PLAN_ID as integer)=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">PLAN_ID</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; and </span><span class="se">\</span>
+<span class="s2">                   cast(PNF_DATA.SEGMENT_ID as integer)=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">SEGMENT_ID</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; and </span><span class="se">\</span>
+<span class="s2">                   PNF_DATA.PREFERRED_STATUS_RETAIL=&#39;Y&#39; and </span><span class="se">\</span>
+<span class="s2">                   PNF_DATA.PHARMACY_ZIPCODE=&#39;&quot;</span><span class="o">+</span><span class="n">user_zip</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
+<span class="s2">                   NCPDP.NPI is substr(PNF_DATA.PHARMACY_NUMBER,3)&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14172,104 +14471,112 @@ Enter a desired strength: 50
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[116]:</div>
+<div class="prompt output_prompt">Out[218]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>FULL_GENERIC_NAME</th>
-      <th>FORMULARY_ID</th>
-      <th>RXCUI</th>
-      <th>TIER_LEVEL_VALUE</th>
-      <th>PRIOR_AUTHORIZATION_YN</th>
+      <th>PHARMACY_NAME</th>
+      <th>PHONE</th>
       <th>CONTRACT_ID</th>
       <th>PLAN_ID</th>
-      <th>PLAN_NAME</th>
-      <th>PREMIUM</th>
-      <th>DEDUCTIBLE</th>
-      <th>COVERAGE_LEVEL</th>
-      <th>DAYS_SUPPLY</th>
-      <th>COST_AMT_PREF</th>
-      <th>COST_TYPE_PREF</th>
-      <th>PDP_REGION_CODE</th>
-      <th>TOTAL_COST</th>
+      <th>SEGMENT_ID</th>
+      <th>PHARMACY_NUMBER</th>
+      <th>PHARMACY_ZIPCODE</th>
+      <th>PREFERRED_STATUS_RETAIL</th>
+      <th>PREFERRED_STATUS_MAIL</th>
+      <th>PHARMACY_RETAIL</th>
+      <th>PHARMACY_MAIL</th>
+      <th>IN_AREA_FLAG</th>
+      <th>BRAND_DISPENSING_FEE_30</th>
+      <th>BRAND_DISPENSING_FEE_60</th>
+      <th>BRAND_DISPENSING_FEE_90</th>
+      <th>GENERIC_DISPENSING_FEE_30</th>
+      <th>GENERIC_DISPENSING_FEE_60</th>
+      <th>GENERIC_DISPENSING_FEE_90</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>46</th>
-      <td>24 HR Metformin hydrochloride 500 MG Extended ...</td>
-      <td>18255</td>
-      <td>860975</td>
-      <td>1</td>
+      <th>0</th>
+      <td>TOWN AND COUNTRY PHARMACY</td>
+      <td>9737622700</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101194716548</td>
+      <td>07040</td>
+      <td>Y</td>
       <td>N</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>20.4</td>
-      <td>405.0</td>
-      <td>0.0</td>
+      <td>Y</td>
+      <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>661.8</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>Allopurinol 300 MG Oral Tablet</td>
-      <td>18419</td>
-      <td>197320</td>
-      <td>2</td>
+      <th>1</th>
+      <td>LEXANN PHARMACY &amp; WELLNESS CENTER</td>
+      <td>9737630010</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101780082339</td>
+      <td>07040</td>
+      <td>Y</td>
       <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>Y</td>
+      <td>N</td>
       <td>1</td>
-      <td>14.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>579.6</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>24 HR metoprolol succinate 50 MG Extended Rele...</td>
-      <td>18419</td>
-      <td>866436</td>
-      <td>2</td>
+      <th>2</th>
+      <td>WALGREENS</td>
+      <td>9737617391</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101174806756</td>
+      <td>07040</td>
+      <td>Y</td>
       <td>N</td>
-      <td>S5601</td>
-      <td>8</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>34.3</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>Y</td>
+      <td>N</td>
       <td>1</td>
-      <td>14.0</td>
-      <td>1.0</td>
-      <td>4</td>
-      <td>579.6</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -14278,566 +14585,19 @@ Enter a desired strength: 50
 
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="FETCHING-PHARMACIES">FETCHING PHARMACIES<a class="anchor-link" href="#FETCHING-PHARMACIES">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[161]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#takes a long-ish time because PNF_DATA table in database is GIGANTIC </span>
-<span class="c1">#(multiple gigabytes, requires load distributing server for speed)</span>
-<span class="n">pharms</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">med</span> <span class="ow">in</span> <span class="n">cheapest_combo</span><span class="p">[[</span><span class="s1">&#39;FULL_GENERIC_NAME&#39;</span><span class="p">,</span><span class="s1">&#39;CONTRACT_ID&#39;</span><span class="p">,</span><span class="s1">&#39;PLAN_ID&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">pharms</span><span class="p">[</span><span class="n">med</span><span class="p">[</span><span class="s1">&#39;FULL_GENERIC_NAME&#39;</span><span class="p">]]</span> <span class="o">=</span> \
-    <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select NCPDP.PHARMACY_NAME,NCPDP.PHONE,PNF_DATA.* </span><span class="se">\</span>
-<span class="s2">    from PNF_DATA,NCPDP </span><span class="se">\</span>
-<span class="s2">    where PNF_DATA.CONTRACT_ID is &#39;&quot;</span><span class="o">+</span><span class="n">med</span><span class="p">[</span><span class="s1">&#39;CONTRACT_ID&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
-<span class="s2">    PNF_DATA.PLAN_ID is &#39;&quot;</span><span class="o">+</span><span class="s2">&quot;0&quot;</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">med</span><span class="p">[</span><span class="s1">&#39;PLAN_ID&#39;</span><span class="p">])))</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">med</span><span class="p">[</span><span class="s1">&#39;PLAN_ID&#39;</span><span class="p">])</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
-<span class="s2">    PNF_DATA.PHARMACY_ZIPCODE is &#39;&quot;</span><span class="o">+</span><span class="n">user_zip</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
-<span class="s2">    NCPDP.NPI is substr(PNF_DATA.PHARMACY_NUMBER,3)&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
-</pre></div>
-
-</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[162]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">med</span><span class="p">,</span><span class="n">pharm</span> <span class="ow">in</span> <span class="n">pharms</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">med</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">pharm</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;PHARMACY_NUMBER&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PHARMACY_NAME</th>
-      <th>PHONE</th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>SEGMENT_ID</th>
-      <th>PHARMACY_NUMBER</th>
-      <th>PHARMACY_ZIPCODE</th>
-      <th>PREFERRED_STATUS_RETAIL</th>
-      <th>PREFERRED_STATUS_MAIL</th>
-      <th>PHARMACY_RETAIL</th>
-      <th>PHARMACY_MAIL</th>
-      <th>IN_AREA_FLAG</th>
-      <th>BRAND_DISPENSING_FEE_30</th>
-      <th>BRAND_DISPENSING_FEE_60</th>
-      <th>BRAND_DISPENSING_FEE_90</th>
-      <th>GENERIC_DISPENSING_FEE_30</th>
-      <th>GENERIC_DISPENSING_FEE_60</th>
-      <th>GENERIC_DISPENSING_FEE_90</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>CVS PHARMACY# 10211</td>
-      <td>9737630124</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>000</td>
-      <td>101861888299</td>
-      <td>07040</td>
-      <td>N</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1.1</td>
-      <td>0</td>
-      <td>1.1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>WALGREENS</td>
-      <td>9737617391</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>000</td>
-      <td>101174806756</td>
-      <td>07040</td>
-      <td>N</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.2</td>
-      <td>0</td>
-      <td>1.2</td>
-      <td>1.2</td>
-      <td>0</td>
-      <td>1.2</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>TOWN AND COUNTRY PHARMACY</td>
-      <td>9737622700</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>000</td>
-      <td>101194716548</td>
-      <td>07040</td>
-      <td>N</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>CAROLINA SUBURBAN DRUG AND SURGICAL</td>
-      <td>9737635252</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>000</td>
-      <td>101730197997</td>
-      <td>07040</td>
-      <td>N</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>LEXANN PHARMACY &amp; WELLNESS CENTER</td>
-      <td>9737630010</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>000</td>
-      <td>101780082339</td>
-      <td>07040</td>
-      <td>N</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Allopurinol 300 MG Oral Tablet
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PHARMACY_NAME</th>
-      <th>PHONE</th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>SEGMENT_ID</th>
-      <th>PHARMACY_NUMBER</th>
-      <th>PHARMACY_ZIPCODE</th>
-      <th>PREFERRED_STATUS_RETAIL</th>
-      <th>PREFERRED_STATUS_MAIL</th>
-      <th>PHARMACY_RETAIL</th>
-      <th>PHARMACY_MAIL</th>
-      <th>IN_AREA_FLAG</th>
-      <th>BRAND_DISPENSING_FEE_30</th>
-      <th>BRAND_DISPENSING_FEE_60</th>
-      <th>BRAND_DISPENSING_FEE_90</th>
-      <th>GENERIC_DISPENSING_FEE_30</th>
-      <th>GENERIC_DISPENSING_FEE_60</th>
-      <th>GENERIC_DISPENSING_FEE_90</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>WALGREENS</td>
-      <td>9737617391</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101174806756</td>
-      <td>07040</td>
-      <td>N</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>CVS PHARMACY# 10211</td>
-      <td>9737630124</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101861888299</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>LEXANN PHARMACY &amp; WELLNESS CENTER</td>
-      <td>9737630010</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101780082339</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>TOWN AND COUNTRY PHARMACY</td>
-      <td>9737622700</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101194716548</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>CAROLINA SUBURBAN DRUG AND SURGICAL</td>
-      <td>9737635252</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101730197997</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>24 HR metoprolol succinate 50 MG Extended Release Oral Tablet
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PHARMACY_NAME</th>
-      <th>PHONE</th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>SEGMENT_ID</th>
-      <th>PHARMACY_NUMBER</th>
-      <th>PHARMACY_ZIPCODE</th>
-      <th>PREFERRED_STATUS_RETAIL</th>
-      <th>PREFERRED_STATUS_MAIL</th>
-      <th>PHARMACY_RETAIL</th>
-      <th>PHARMACY_MAIL</th>
-      <th>IN_AREA_FLAG</th>
-      <th>BRAND_DISPENSING_FEE_30</th>
-      <th>BRAND_DISPENSING_FEE_60</th>
-      <th>BRAND_DISPENSING_FEE_90</th>
-      <th>GENERIC_DISPENSING_FEE_30</th>
-      <th>GENERIC_DISPENSING_FEE_60</th>
-      <th>GENERIC_DISPENSING_FEE_90</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>WALGREENS</td>
-      <td>9737617391</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101174806756</td>
-      <td>07040</td>
-      <td>N</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>CVS PHARMACY# 10211</td>
-      <td>9737630124</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101861888299</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>LEXANN PHARMACY &amp; WELLNESS CENTER</td>
-      <td>9737630010</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101780082339</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>TOWN AND COUNTRY PHARMACY</td>
-      <td>9737622700</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101194716548</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>CAROLINA SUBURBAN DRUG AND SURGICAL</td>
-      <td>9737635252</td>
-      <td>S5601</td>
-      <td>008</td>
-      <td>000</td>
-      <td>101730197997</td>
-      <td>07040</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
