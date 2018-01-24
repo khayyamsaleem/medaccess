@@ -11781,7 +11781,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11813,7 +11813,7 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ALL TABLES: 
-BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMULARY_DATA, NDC_DATA, RXCUI_DATA, PNF_DATA, 
+BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMULARY_DATA, NDC_DATA, RXCUI_DATA, PNF_DATA, ALL_DATA, 
 </pre>
 </div>
 </div>
@@ -11832,7 +11832,7 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Asks user for their zip code, gets state, determines pdp_region_code based on state</span>
@@ -11881,7 +11881,7 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[197]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_generics</span> <span class="o">=</span> <span class="p">{(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a generic drug name: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>\
@@ -11909,11 +11909,11 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 <pre>Enter how many drugs you wish to search: 3
 Enter a generic drug name: metoprolol succinate
 Enter a desired strength: 50
-Enter a generic drug name: metformin
-Enter a desired strength: 500
 Enter a generic drug name: allopurinol
 Enter a desired strength: 300
-{(&#39;METOPROLOL SUCCINATE&#39;, &#39;50&#39;): &#39;866436&#39;, (&#39;METFORMIN&#39;, &#39;500&#39;): &#39;861007&#39;, (&#39;ALLOPURINOL&#39;, &#39;300&#39;): &#39;197320&#39;}
+Enter a generic drug name: metformin
+Enter a desired strength: 500
+{(&#39;METOPROLOL SUCCINATE&#39;, &#39;50&#39;): &#39;866436&#39;, (&#39;ALLOPURINOL&#39;, &#39;300&#39;): &#39;197320&#39;, (&#39;METFORMIN&#39;, &#39;500&#39;): &#39;861007&#39;}
 </pre>
 </div>
 </div>
@@ -11932,7 +11932,7 @@ Enter a desired strength: 300
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[198]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select </span><span class="se">\</span>
@@ -12268,7 +12268,7 @@ Enter a desired strength: 300
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[199]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select </span><span class="se">\</span>
@@ -12329,10 +12329,13 @@ Enter a desired strength: 300
       <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_TIER&#39;</span><span class="p">,</span>
       <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_CAP&#39;</span><span class="p">]]],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="c1">#ADD IN COST COLUMN</span>
-    <span class="k">if</span> <span class="s1">&#39;TOTAL_COST&#39;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="k">del</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">]</span>
-    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;CAP&#39;</span><span class="p">]]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">]</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;TOTAL_COST&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s1">&#39;MONTHLY_COPAY&#39;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;MONTHLY_COPAY&#39;</span><span class="p">]</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;CAP&#39;</span><span class="p">]]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">]</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;MONTHLY_COPAY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;CAP&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 
@@ -12381,7 +12384,8 @@ Enter a desired strength: 300
       <th>METOPROLOL_SUCCINATE_PA</th>
       <th>METOPROLOL_SUCCINATE_TIER</th>
       <th>METOPROLOL_SUCCINATE_CAP</th>
-      <th>TOTAL_COST</th>
+      <th>ANNUAL_TOTAL_COST</th>
+      <th>MONTHLY_COPAY</th>
     </tr>
   </thead>
   <tbody>
@@ -12400,6 +12404,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>2.0</td>
       <td>80.2</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -12416,6 +12421,7 @@ Enter a desired strength: 300
       <td>1</td>
       <td>1.0</td>
       <td>96.6</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -12432,6 +12438,7 @@ Enter a desired strength: 300
       <td>1</td>
       <td>4.0</td>
       <td>100.9</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -12448,6 +12455,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>7.0</td>
       <td>161.8</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -12464,6 +12472,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>8.0</td>
       <td>195.6</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>5</th>
@@ -12480,6 +12489,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>14.0</td>
       <td>202.3</td>
+      <td>14.0</td>
     </tr>
     <tr>
       <th>6</th>
@@ -12496,6 +12506,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>10.0</td>
       <td>206.6</td>
+      <td>10.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -12512,6 +12523,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>2.0</td>
       <td>383.9</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>8</th>
@@ -12528,6 +12540,7 @@ Enter a desired strength: 300
       <td>1</td>
       <td>0.0</td>
       <td>431.8</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>9</th>
@@ -12544,6 +12557,7 @@ Enter a desired strength: 300
       <td>1</td>
       <td>1.0</td>
       <td>447.4</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>10</th>
@@ -12560,6 +12574,7 @@ Enter a desired strength: 300
       <td>1</td>
       <td>1.0</td>
       <td>450.2</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>11</th>
@@ -12576,6 +12591,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>1.0</td>
       <td>453.9</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>12</th>
@@ -12592,6 +12608,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>1.0</td>
       <td>454.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>13</th>
@@ -12608,6 +12625,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>3.0</td>
       <td>460.7</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>14</th>
@@ -12624,6 +12642,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>4.0</td>
       <td>473.4</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>15</th>
@@ -12640,6 +12659,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>3.0</td>
       <td>475.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>16</th>
@@ -12656,6 +12676,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>4.0</td>
       <td>475.6</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>17</th>
@@ -12672,6 +12693,7 @@ Enter a desired strength: 300
       <td>1</td>
       <td>1.0</td>
       <td>491.8</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>18</th>
@@ -12688,6 +12710,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>3.0</td>
       <td>492.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>19</th>
@@ -12704,6 +12727,7 @@ Enter a desired strength: 300
       <td>3</td>
       <td>36.0</td>
       <td>511.5</td>
+      <td>36.0</td>
     </tr>
     <tr>
       <th>20</th>
@@ -12720,6 +12744,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>7.0</td>
       <td>525.7</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>21</th>
@@ -12736,6 +12761,7 @@ Enter a desired strength: 300
       <td>2</td>
       <td>8.0</td>
       <td>548.7</td>
+      <td>8.0</td>
     </tr>
   </tbody>
 </table>
@@ -12781,11 +12807,12 @@ Enter a desired strength: 300
       <th>METOPROLOL_SUCCINATE_PA</th>
       <th>METOPROLOL_SUCCINATE_TIER</th>
       <th>METOPROLOL_SUCCINATE_CAP</th>
-      <th>METFORMIN_RXCUI</th>
-      <th>METFORMIN_PA</th>
-      <th>METFORMIN_TIER</th>
-      <th>METFORMIN_CAP</th>
-      <th>TOTAL_COST</th>
+      <th>ALLOPURINOL_RXCUI</th>
+      <th>ALLOPURINOL_PA</th>
+      <th>ALLOPURINOL_TIER</th>
+      <th>ALLOPURINOL_CAP</th>
+      <th>ANNUAL_TOTAL_COST</th>
+      <th>MONTHLY_COPAY</th>
     </tr>
   </thead>
   <tbody>
@@ -12803,11 +12830,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>108.6</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -12823,11 +12851,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>112.9</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -12843,11 +12872,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>6.0</td>
       <td>152.2</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -12863,11 +12893,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>7.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>161.8</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -12883,11 +12914,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>14.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>202.3</td>
+      <td>14.0</td>
     </tr>
     <tr>
       <th>5</th>
@@ -12903,11 +12935,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>207.6</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>6</th>
@@ -12923,11 +12956,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>10.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>218.6</td>
+      <td>11.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -12943,11 +12977,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>395.9</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>8</th>
@@ -12963,11 +12998,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>462.2</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>9</th>
@@ -12983,11 +13019,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>465.9</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>10</th>
@@ -13003,11 +13040,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>466.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>11</th>
@@ -13023,11 +13061,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>4.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>473.4</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>12</th>
@@ -13043,11 +13082,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
       <td>479.8</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>13</th>
@@ -13063,11 +13103,12 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>3.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>2.0</td>
       <td>484.7</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>14</th>
@@ -13083,74 +13124,15 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>3.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>487.0</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>503.8</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>0</td>
-      <td>18152</td>
-      <td>22.6</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>4.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>511.6</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
-      <td>WellCare Extra (PDP)</td>
-      <td>S4802</td>
-      <td>101</td>
-      <td>0</td>
-      <td>18439</td>
-      <td>79.5</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>3</td>
-      <td>36.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>523.5</td>
-    </tr>
-    <tr>
-      <th>18</th>
       <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
       <td>Express Scripts Medicare - Choice (PDP)</td>
       <td>S5660</td>
@@ -13163,34 +13145,36 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>7.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
-      <td>1</td>
+      <td>2</td>
       <td>0.0</td>
       <td>525.7</td>
+      <td>7.0</td>
     </tr>
     <tr>
-      <th>19</th>
-      <td>ENVISION INSURANCE COMPANY</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>S7694</td>
-      <td>4</td>
+      <th>16</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
       <td>0</td>
-      <td>18364</td>
-      <td>51.0</td>
+      <td>18082</td>
+      <td>74.8</td>
       <td>405.0</td>
       <td>866436</td>
       <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
       <td>2</td>
       <td>3.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>528.0</td>
+      <td>527.8</td>
+      <td>4.0</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>17</th>
       <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
       <td>Symphonix Value Rx (PDP)</td>
       <td>S0522</td>
@@ -13203,14 +13187,15 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
       <td>543.4</td>
+      <td>9.0</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>18</th>
       <td>HORIZON INSURANCE COMPANY</td>
       <td>Horizon Medicare Blue Rx Standard (PDP)</td>
       <td>S5993</td>
@@ -13223,11 +13208,75 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>548.7</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
+      <td>0</td>
+      <td>18152</td>
+      <td>22.6</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>559.6</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>3</td>
+      <td>36.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>5.0</td>
+      <td>571.5</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
+      <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>14.0</td>
+      <td>660.0</td>
+      <td>17.0</td>
     </tr>
   </tbody>
 </table>
@@ -13272,16 +13321,16 @@ Enter a desired strength: 300
       <th>METOPROLOL_SUCCINATE_RXCUI</th>
       <th>METOPROLOL_SUCCINATE_PA</th>
       <th>...</th>
-      <th>METOPROLOL_SUCCINATE_CAP</th>
-      <th>METFORMIN_RXCUI</th>
-      <th>METFORMIN_PA</th>
-      <th>METFORMIN_TIER</th>
-      <th>METFORMIN_CAP</th>
       <th>ALLOPURINOL_RXCUI</th>
       <th>ALLOPURINOL_PA</th>
       <th>ALLOPURINOL_TIER</th>
       <th>ALLOPURINOL_CAP</th>
-      <th>TOTAL_COST</th>
+      <th>METFORMIN_RXCUI</th>
+      <th>METFORMIN_PA</th>
+      <th>METFORMIN_TIER</th>
+      <th>METFORMIN_CAP</th>
+      <th>ANNUAL_TOTAL_COST</th>
+      <th>MONTHLY_COPAY</th>
     </tr>
   </thead>
   <tbody>
@@ -13298,16 +13347,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>4.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>124.9</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -13322,16 +13371,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>7.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
       <td>161.8</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -13346,16 +13395,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>2.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>6.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>164.2</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -13370,16 +13419,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
       <td>6.0</td>
       <td>180.6</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -13394,16 +13443,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>8.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>207.6</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>5</th>
@@ -13418,16 +13467,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>14.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>214.3</td>
+      <td>15.0</td>
     </tr>
     <tr>
       <th>6</th>
@@ -13442,16 +13491,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>10.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>230.6</td>
+      <td>12.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -13466,16 +13515,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>2.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>407.9</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>8</th>
@@ -13490,16 +13539,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
       <td>1.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>478.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>9</th>
@@ -13514,16 +13563,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>4.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>485.4</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>10</th>
@@ -13538,16 +13587,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>3.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>487.0</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>11</th>
@@ -13562,16 +13611,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>0.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>491.8</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>12</th>
@@ -13586,16 +13635,16 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>3.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>2.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
       <td>508.7</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>13</th>
@@ -13610,40 +13659,40 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
       <td>510.2</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>S5617</td>
-      <td>18</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
       <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
-      <td>405.0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>515.8</td>
+      <td>537.7</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>15</th>
@@ -13658,67 +13707,19 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>2</td>
-      <td>8.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
-      <td>0.0</td>
-      <td>543.4</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>555.4</td>
+      <td>10.0</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18130</td>
-      <td>47.7</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>8.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>548.7</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
-      <td>WellCare Extra (PDP)</td>
-      <td>S4802</td>
-      <td>101</td>
-      <td>0</td>
-      <td>18439</td>
-      <td>79.5</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>36.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>559.5</td>
-    </tr>
-    <tr>
-      <th>18</th>
       <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
       <td>WellCare Classic (PDP)</td>
       <td>S4802</td>
@@ -13730,43 +13731,67 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
       <td>561.9</td>
+      <td>10.0</td>
     </tr>
     <tr>
-      <th>19</th>
-      <td>ENVISION INSURANCE COMPANY</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>S7694</td>
-      <td>4</td>
+      <th>17</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
       <td>0</td>
-      <td>18364</td>
-      <td>51.0</td>
+      <td>18082</td>
+      <td>74.8</td>
       <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>...</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
       <td>3.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>3.0</td>
+      <td>563.8</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
       <td>5.0</td>
-      <td>588.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>571.5</td>
+      <td>41.0</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>19</th>
       <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
       <td>Express Scripts Medicare - Saver (PDP)</td>
       <td>S5660</td>
@@ -13778,44 +13803,68 @@ Enter a desired strength: 300
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>4.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>571.6</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>3.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>595.6</td>
+      <td>584.7</td>
+      <td>11.0</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>S5660</td>
-      <td>207</td>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
+      <td>4</td>
       <td>0</td>
-      <td>18155</td>
-      <td>91.7</td>
-      <td>350.0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>7.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
       <td>14.0</td>
-      <td>693.7</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>660.0</td>
+      <td>17.0</td>
     </tr>
   </tbody>
 </table>
-<p>22 rows × 21 columns</p>
+<p>22 rows × 22 columns</p>
 </div>
 </div>
 
@@ -13829,13 +13878,13 @@ Enter a desired strength: 300
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="FULL-FINAL-OUTPUT,-SORTED-BY-COST">FULL FINAL OUTPUT, SORTED BY COST<a class="anchor-link" href="#FULL-FINAL-OUTPUT,-SORTED-BY-COST">&#182;</a></h1>
+<h1 id="FULL-FINAL-OUTPUT,-SORTED-BY-ANNUAL-TOTAL-COST">FULL FINAL OUTPUT, SORTED BY ANNUAL TOTAL COST<a class="anchor-link" href="#FULL-FINAL-OUTPUT,-SORTED-BY-ANNUAL-TOTAL-COST">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[200]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">22</span><span class="p">):</span>
@@ -13887,15 +13936,16 @@ Enter a desired strength: 300
       <th>METOPROLOL_SUCCINATE_PA</th>
       <th>METOPROLOL_SUCCINATE_TIER</th>
       <th>METOPROLOL_SUCCINATE_CAP</th>
-      <th>METFORMIN_RXCUI</th>
-      <th>METFORMIN_PA</th>
-      <th>METFORMIN_TIER</th>
-      <th>METFORMIN_CAP</th>
       <th>ALLOPURINOL_RXCUI</th>
       <th>ALLOPURINOL_PA</th>
       <th>ALLOPURINOL_TIER</th>
       <th>ALLOPURINOL_CAP</th>
-      <th>TOTAL_COST</th>
+      <th>METFORMIN_RXCUI</th>
+      <th>METFORMIN_PA</th>
+      <th>METFORMIN_TIER</th>
+      <th>METFORMIN_CAP</th>
+      <th>ANNUAL_TOTAL_COST</th>
+      <th>MONTHLY_COPAY</th>
     </tr>
   </thead>
   <tbody>
@@ -13913,15 +13963,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>124.9</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -13937,15 +13988,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>7.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
       <td>161.8</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -13961,15 +14013,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>6.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>164.2</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -13985,15 +14038,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>6.0</td>
       <td>180.6</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -14009,15 +14063,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>207.6</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>5</th>
@@ -14033,15 +14088,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>14.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>214.3</td>
+      <td>15.0</td>
     </tr>
     <tr>
       <th>6</th>
@@ -14057,15 +14113,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>10.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>230.6</td>
+      <td>12.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -14081,15 +14138,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>407.9</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>8</th>
@@ -14105,15 +14163,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>478.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>9</th>
@@ -14129,15 +14188,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>4.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>485.4</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>10</th>
@@ -14153,15 +14213,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>3.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
       <td>487.0</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>11</th>
@@ -14177,15 +14238,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>491.8</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>12</th>
@@ -14201,15 +14263,16 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>3.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>2.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
       <td>508.7</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>13</th>
@@ -14225,39 +14288,41 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
+      <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
       <td>510.2</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>S5617</td>
-      <td>18</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
       <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
-      <td>405.0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
       <td>866436</td>
       <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>515.8</td>
+      <td>537.7</td>
+      <td>8.0</td>
     </tr>
     <tr>
       <th>15</th>
@@ -14273,66 +14338,19 @@ Enter a desired strength: 300
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>2</td>
-      <td>8.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
-      <td>0.0</td>
-      <td>543.4</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18130</td>
-      <td>47.7</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
       <td>8.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>548.7</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
-      <td>WellCare Extra (PDP)</td>
-      <td>S4802</td>
-      <td>101</td>
-      <td>0</td>
-      <td>18439</td>
-      <td>79.5</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>3</td>
-      <td>36.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>559.5</td>
+      <td>555.4</td>
+      <td>10.0</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>16</th>
       <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
       <td>WellCare Classic (PDP)</td>
       <td>S4802</td>
@@ -14345,42 +14363,69 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>861007</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>561.9</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
-      <td>8.0</td>
-      <td>561.9</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>ENVISION INSURANCE COMPANY</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>S7694</td>
-      <td>4</td>
-      <td>0</td>
-      <td>18364</td>
-      <td>51.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
       <td>3.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>3.0</td>
+      <td>563.8</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>3</td>
+      <td>36.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
       <td>5.0</td>
-      <td>588.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>571.5</td>
+      <td>41.0</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>19</th>
       <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
       <td>Express Scripts Medicare - Saver (PDP)</td>
       <td>S5660</td>
@@ -14393,39 +14438,66 @@ Enter a desired strength: 300
       <td>N</td>
       <td>2</td>
       <td>4.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>571.6</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>3.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>595.6</td>
+      <td>584.7</td>
+      <td>11.0</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>S5660</td>
-      <td>207</td>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
+      <td>4</td>
       <td>0</td>
-      <td>18155</td>
-      <td>91.7</td>
-      <td>350.0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>7.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
+      <td>3.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
       <td>14.0</td>
-      <td>693.7</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>660.0</td>
+      <td>17.0</td>
     </tr>
   </tbody>
 </table>
@@ -14448,7 +14520,7 @@ Enter a desired strength: 300
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[218]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;select NCPDP.PHARMACY_NAME, NCPDP.PHONE, PNF_DATA.* </span><span class="se">\</span>
@@ -14457,8 +14529,9 @@ Enter a desired strength: 300
 <span class="s2">                   cast(PNF_DATA.PLAN_ID as integer)=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">PLAN_ID</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; and </span><span class="se">\</span>
 <span class="s2">                   cast(PNF_DATA.SEGMENT_ID as integer)=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">SEGMENT_ID</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; and </span><span class="se">\</span>
 <span class="s2">                   PNF_DATA.PREFERRED_STATUS_RETAIL=&#39;Y&#39; and </span><span class="se">\</span>
-<span class="s2">                   PNF_DATA.PHARMACY_ZIPCODE=&#39;&quot;</span><span class="o">+</span><span class="n">user_zip</span><span class="o">+</span><span class="s2">&quot;&#39; and </span><span class="se">\</span>
-<span class="s2">                   NCPDP.NPI is substr(PNF_DATA.PHARMACY_NUMBER,3)&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
+<span class="s2">                   PNF_DATA.PHARMACY_ZIPCODE like &#39;&quot;</span><span class="o">+</span><span class="n">user_zip</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;%&#39; and </span><span class="se">\</span>
+<span class="s2">                   NCPDP.NPI is substr(PNF_DATA.PHARMACY_NUMBER,3) </span><span class="se">\</span>
+<span class="s2">             limit 10&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14471,7 +14544,7 @@ Enter a desired strength: 300
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[218]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -14517,6 +14590,69 @@ Enter a desired strength: 300
   <tbody>
     <tr>
       <th>0</th>
+      <td>TERRYS FAMILY PHARMACY INC</td>
+      <td>9732392200</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101053405464</td>
+      <td>07044</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KEILS PHARMACY</td>
+      <td>9737442113</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101104862564</td>
+      <td>07043</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NORTH BERGEN PHARMACY</td>
+      <td>2018686900</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101992713283</td>
+      <td>07047</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>TOWN AND COUNTRY PHARMACY</td>
       <td>9737622700</td>
       <td>S5617</td>
@@ -14537,7 +14673,49 @@ Enter a desired strength: 300
       <td>0.6</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>4</th>
+      <td>ATLAS DRUG AND NUTRITION</td>
+      <td>2018695990</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101417992629</td>
+      <td>07047</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SHOPRITE PHARMACY OF COLUMBIA PARK</td>
+      <td>2018657050</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101992810774</td>
+      <td>07047</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
       <td>LEXANN PHARMACY &amp; WELLNESS CENTER</td>
       <td>9737630010</td>
       <td>S5617</td>
@@ -14558,14 +14736,56 @@ Enter a desired strength: 300
       <td>0.4</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>WALGREENS</td>
-      <td>9737617391</td>
+      <th>7</th>
+      <td>ACME PHARMACY #1764</td>
+      <td>9737467471</td>
       <td>S5617</td>
       <td>249</td>
       <td>000</td>
-      <td>101174806756</td>
-      <td>07040</td>
+      <td>101457728271</td>
+      <td>07043</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.55</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>AMEEN PHARMACY</td>
+      <td>2015908776</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101619114170</td>
+      <td>07047</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>WALGREENS #13701</td>
+      <td>9735590901</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101780826776</td>
+      <td>07044</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
