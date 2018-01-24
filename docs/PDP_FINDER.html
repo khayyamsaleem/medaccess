@@ -11781,7 +11781,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11832,7 +11832,7 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Asks user for their zip code, gets state, determines pdp_region_code based on state</span>
@@ -11909,11 +11909,11 @@ BENEFICIARY_COST, GEOGRAPHIC_LOCATOR, PLAN_INFO, ZIP_STATE_COUNTY, NCPDP, FORMUL
 <pre>Enter how many drugs you wish to search: 3
 Enter a generic drug name: metoprolol succinate
 Enter a desired strength: 50
-Enter a generic drug name: allopurinol
-Enter a desired strength: 300
 Enter a generic drug name: metformin
 Enter a desired strength: 500
-{(&#39;METOPROLOL SUCCINATE&#39;, &#39;50&#39;): &#39;866436&#39;, (&#39;ALLOPURINOL&#39;, &#39;300&#39;): &#39;197320&#39;, (&#39;METFORMIN&#39;, &#39;500&#39;): &#39;861007&#39;}
+Enter a generic drug name: allopurinol
+Enter a desired strength: 300
+{(&#39;METOPROLOL SUCCINATE&#39;, &#39;50&#39;): &#39;866436&#39;, (&#39;METFORMIN&#39;, &#39;500&#39;): &#39;861007&#39;, (&#39;ALLOPURINOL&#39;, &#39;300&#39;): &#39;197320&#39;}
 </pre>
 </div>
 </div>
@@ -11926,7 +11926,7 @@ Enter a desired strength: 500
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="GETTING-DATA-FOR-FORMULARY_IDs-IN-REGION">GETTING DATA FOR FORMULARY_IDs IN REGION<a class="anchor-link" href="#GETTING-DATA-FOR-FORMULARY_IDs-IN-REGION">&#182;</a></h1>
+<h5 id="GETTING-DATA-FOR-FORMULARY_IDs-IN-REGION">GETTING DATA FOR FORMULARY_IDs IN REGION<a class="anchor-link" href="#GETTING-DATA-FOR-FORMULARY_IDs-IN-REGION">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -12333,7 +12333,7 @@ Enter a desired strength: 500
         <span class="k">del</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="s1">&#39;MONTHLY_COPAY&#39;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="k">del</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;MONTHLY_COPAY&#39;</span><span class="p">]</span>
-    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;CAP&#39;</span><span class="p">]]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">]</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">out</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;CAP&#39;</span><span class="p">]]</span><span class="o">*</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;PREMIUM&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="s1">&#39;DEDUCTIBLE&#39;</span><span class="p">]</span>
     <span class="n">out</span><span class="p">[</span><span class="s1">&#39;MONTHLY_COPAY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">&#39;CAP&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;ANNUAL_TOTAL_COST&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
@@ -12391,37 +12391,37 @@ Enter a desired strength: 500
   <tbody>
     <tr>
       <th>0</th>
-      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
-      <td>First Health Part D Value Plus (PDP)</td>
-      <td>S5768</td>
-      <td>127</td>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Choice (PDP)</td>
+      <td>S5601</td>
+      <td>8</td>
       <td>0</td>
-      <td>18059</td>
-      <td>56.2</td>
+      <td>18419</td>
+      <td>34.3</td>
       <td>0.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>2.0</td>
-      <td>80.2</td>
-      <td>2.0</td>
+      <td>14.0</td>
+      <td>579.6</td>
+      <td>14.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>SILVERSCRIPT INSURANCE COMPANY</td>
-      <td>SilverScript Plus (PDP)</td>
-      <td>S5601</td>
-      <td>9</td>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
       <td>0</td>
-      <td>18420</td>
-      <td>84.6</td>
-      <td>0.0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>96.6</td>
-      <td>1.0</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>677.4</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -12437,76 +12437,76 @@ Enter a desired strength: 500
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
-      <td>100.9</td>
+      <td>682.8</td>
       <td>4.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Enhanced (PDP)</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
       <td>S5884</td>
-      <td>62</td>
+      <td>150</td>
       <td>0</td>
-      <td>18256</td>
-      <td>77.8</td>
-      <td>0.0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>7.0</td>
-      <td>161.8</td>
-      <td>7.0</td>
+      <td>4.0</td>
+      <td>697.8</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
-      <td>S5993</td>
-      <td>3</td>
+      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>S5768</td>
+      <td>127</td>
       <td>0</td>
-      <td>18131</td>
-      <td>99.6</td>
+      <td>18059</td>
+      <td>56.2</td>
       <td>0.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>8.0</td>
-      <td>195.6</td>
-      <td>8.0</td>
+      <td>2.0</td>
+      <td>698.4</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>SILVERSCRIPT INSURANCE COMPANY</td>
-      <td>SilverScript Choice (PDP)</td>
-      <td>S5601</td>
-      <td>8</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
       <td>0</td>
-      <td>18419</td>
-      <td>34.3</td>
-      <td>0.0</td>
+      <td>18152</td>
+      <td>22.6</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>14.0</td>
-      <td>202.3</td>
-      <td>14.0</td>
+      <td>4.0</td>
+      <td>724.2</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
-      <td>AARP MedicareRx Preferred (PDP)</td>
-      <td>S5820</td>
-      <td>3</td>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
       <td>0</td>
-      <td>18039</td>
-      <td>86.6</td>
-      <td>0.0</td>
+      <td>18043</td>
+      <td>26.8</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
-      <td>2</td>
-      <td>10.0</td>
-      <td>206.6</td>
-      <td>10.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>726.6</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -12522,28 +12522,11 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>383.9</td>
+      <td>767.8</td>
       <td>2.0</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>0</td>
-      <td>18043</td>
-      <td>26.8</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>431.8</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
       <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
       <td>Symphonix Value Rx (PDP)</td>
       <td>S0522</td>
@@ -12556,11 +12539,11 @@ Enter a desired strength: 500
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>447.4</td>
+      <td>781.8</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>9</th>
       <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
       <td>AARP MedicareRx Saver Plus (PDP)</td>
       <td>S5921</td>
@@ -12573,8 +12556,25 @@ Enter a desired strength: 500
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>450.2</td>
+      <td>815.4</td>
       <td>1.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>849.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>11</th>
@@ -12590,7 +12590,7 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>1.0</td>
-      <td>453.9</td>
+      <td>859.8</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -12607,96 +12607,45 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>1.0</td>
-      <td>454.0</td>
+      <td>861.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>AETNA LIFE INSURANCE COMPANY</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>S5810</td>
-      <td>278</td>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
       <td>0</td>
-      <td>18057</td>
-      <td>19.7</td>
-      <td>405.0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>3.0</td>
-      <td>460.7</td>
-      <td>3.0</td>
+      <td>7.0</td>
+      <td>1017.6</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>S5884</td>
-      <td>150</td>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
       <td>0</td>
-      <td>18255</td>
-      <td>20.4</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>4.0</td>
-      <td>473.4</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
-      <td>S5660</td>
-      <td>106</td>
-      <td>0</td>
-      <td>18154</td>
-      <td>34.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>475.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>0</td>
-      <td>18152</td>
-      <td>22.6</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>4.0</td>
-      <td>475.6</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
-      <td>405.0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
       <td>866436</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>491.8</td>
+      <td>1027.2</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>15</th>
       <td>ENVISION INSURANCE COMPANY</td>
       <td>EnvisionRxPlus (PDP)</td>
       <td>S7694</td>
@@ -12709,45 +12658,11 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>3.0</td>
-      <td>492.0</td>
+      <td>1053.0</td>
       <td>3.0</td>
     </tr>
     <tr>
-      <th>19</th>
-      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
-      <td>WellCare Extra (PDP)</td>
-      <td>S4802</td>
-      <td>101</td>
-      <td>0</td>
-      <td>18439</td>
-      <td>79.5</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>3</td>
-      <td>36.0</td>
-      <td>511.5</td>
-      <td>36.0</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>0</td>
-      <td>18155</td>
-      <td>91.7</td>
-      <td>350.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>525.7</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
+      <th>16</th>
       <td>HORIZON INSURANCE COMPANY</td>
       <td>Horizon Medicare Blue Rx Standard (PDP)</td>
       <td>S5993</td>
@@ -12760,8 +12675,93 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
-      <td>548.7</td>
+      <td>1073.4</td>
       <td>8.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>10.0</td>
+      <td>1159.2</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18131</td>
+      <td>99.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>1291.2</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1314.6</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Extra (PDP)</td>
+      <td>S4802</td>
+      <td>101</td>
+      <td>0</td>
+      <td>18439</td>
+      <td>79.5</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>3</td>
+      <td>36.0</td>
+      <td>1386.0</td>
+      <td>36.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>1534.4</td>
+      <td>7.0</td>
     </tr>
   </tbody>
 </table>
@@ -12807,10 +12807,10 @@ Enter a desired strength: 500
       <th>METOPROLOL_SUCCINATE_PA</th>
       <th>METOPROLOL_SUCCINATE_TIER</th>
       <th>METOPROLOL_SUCCINATE_CAP</th>
-      <th>ALLOPURINOL_RXCUI</th>
-      <th>ALLOPURINOL_PA</th>
-      <th>ALLOPURINOL_TIER</th>
-      <th>ALLOPURINOL_CAP</th>
+      <th>METFORMIN_RXCUI</th>
+      <th>METFORMIN_PA</th>
+      <th>METFORMIN_TIER</th>
+      <th>METFORMIN_CAP</th>
       <th>ANNUAL_TOTAL_COST</th>
       <th>MONTHLY_COPAY</th>
     </tr>
@@ -12818,90 +12818,6 @@ Enter a desired strength: 500
   <tbody>
     <tr>
       <th>0</th>
-      <td>SILVERSCRIPT INSURANCE COMPANY</td>
-      <td>SilverScript Plus (PDP)</td>
-      <td>S5601</td>
-      <td>9</td>
-      <td>0</td>
-      <td>18420</td>
-      <td>84.6</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>108.6</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
-      <td>S5617</td>
-      <td>249</td>
-      <td>0</td>
-      <td>18083</td>
-      <td>52.9</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>112.9</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
-      <td>First Health Part D Value Plus (PDP)</td>
-      <td>S5768</td>
-      <td>127</td>
-      <td>0</td>
-      <td>18059</td>
-      <td>56.2</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>2.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>6.0</td>
-      <td>152.2</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>S5884</td>
-      <td>62</td>
-      <td>0</td>
-      <td>18256</td>
-      <td>77.8</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>161.8</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
       <td>SILVERSCRIPT INSURANCE COMPANY</td>
       <td>SilverScript Choice (PDP)</td>
       <td>S5601</td>
@@ -12914,54 +12830,138 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>14.0</td>
-      <td>197320</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>651.6</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>689.4</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>0</td>
+      <td>18083</td>
+      <td>52.9</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>694.8</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>202.3</td>
-      <td>14.0</td>
+      <td>697.8</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
+      <td>First Health Part D Value Plus (PDP)</td>
+      <td>S5768</td>
+      <td>127</td>
+      <td>0</td>
+      <td>18059</td>
+      <td>56.2</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>710.4</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
-      <td>S5993</td>
-      <td>3</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
       <td>0</td>
-      <td>18131</td>
-      <td>99.6</td>
-      <td>0.0</td>
+      <td>18152</td>
+      <td>22.6</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>8.0</td>
-      <td>197320</td>
+      <td>4.0</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>207.6</td>
-      <td>9.0</td>
+      <td>0.0</td>
+      <td>724.2</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
-      <td>AARP MedicareRx Preferred (PDP)</td>
-      <td>S5820</td>
-      <td>3</td>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
       <td>0</td>
-      <td>18039</td>
-      <td>86.6</td>
-      <td>0.0</td>
+      <td>18043</td>
+      <td>26.8</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
-      <td>2</td>
-      <td>10.0</td>
-      <td>197320</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>218.6</td>
-      <td>11.0</td>
+      <td>738.6</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -12977,204 +12977,15 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>395.9</td>
+      <td>779.8</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
-      <td>AARP MedicareRx Saver Plus (PDP)</td>
-      <td>S5921</td>
-      <td>349</td>
-      <td>0</td>
-      <td>18040</td>
-      <td>33.2</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>462.2</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
-      <td>WellCare Classic (PDP)</td>
-      <td>S4802</td>
-      <td>78</td>
-      <td>0</td>
-      <td>18443</td>
-      <td>36.9</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>465.9</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
-      <td>S5884</td>
-      <td>131</td>
-      <td>0</td>
-      <td>18254</td>
-      <td>37.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>466.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>0</td>
-      <td>18255</td>
-      <td>20.4</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>4.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>473.4</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>0</td>
-      <td>18043</td>
-      <td>26.8</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>479.8</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>AETNA LIFE INSURANCE COMPANY</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>0</td>
-      <td>18057</td>
-      <td>19.7</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>484.7</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
-      <td>S5660</td>
-      <td>106</td>
-      <td>0</td>
-      <td>18154</td>
-      <td>34.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>487.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>0</td>
-      <td>18155</td>
-      <td>91.7</td>
-      <td>350.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>0.0</td>
-      <td>525.7</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>S5617</td>
-      <td>18</td>
-      <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>527.8</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
       <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
       <td>Symphonix Value Rx (PDP)</td>
       <td>S0522</td>
@@ -13187,15 +12998,162 @@ Enter a desired strength: 500
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>829.8</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
+      <td>WellCare Classic (PDP)</td>
+      <td>S4802</td>
+      <td>78</td>
+      <td>0</td>
+      <td>18443</td>
+      <td>36.9</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>871.8</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>131</td>
+      <td>0</td>
+      <td>18254</td>
+      <td>37.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>873.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>0</td>
+      <td>18040</td>
+      <td>33.2</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
-      <td>543.4</td>
+      <td>911.4</td>
       <td>9.0</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>13</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>1027.2</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>1041.6</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
+      <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1065.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
       <td>HORIZON INSURANCE COMPANY</td>
       <td>Horizon Medicare Blue Rx Standard (PDP)</td>
       <td>S5993</td>
@@ -13208,32 +13166,74 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>0.0</td>
-      <td>548.7</td>
-      <td>8.0</td>
+      <td>3.0</td>
+      <td>1109.4</td>
+      <td>11.0</td>
     </tr>
     <tr>
-      <th>19</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>S5660</td>
-      <td>220</td>
+      <th>17</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
       <td>0</td>
-      <td>18152</td>
-      <td>22.6</td>
-      <td>405.0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>4.0</td>
-      <td>197320</td>
+      <td>10.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1171.2</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1326.6</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18131</td>
+      <td>99.6</td>
+      <td>0.0</td>
+      <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>7.0</td>
-      <td>559.6</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>1327.2</td>
       <td>11.0</td>
     </tr>
     <tr>
@@ -13250,33 +13250,33 @@ Enter a desired strength: 500
       <td>N</td>
       <td>3</td>
       <td>36.0</td>
-      <td>197320</td>
+      <td>861007</td>
       <td>N</td>
-      <td>2</td>
-      <td>5.0</td>
-      <td>571.5</td>
-      <td>41.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>1386.0</td>
+      <td>36.0</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>ENVISION INSURANCE COMPANY</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>S7694</td>
-      <td>4</td>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
       <td>0</td>
-      <td>18364</td>
-      <td>51.0</td>
-      <td>405.0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>3.0</td>
-      <td>197320</td>
+      <td>7.0</td>
+      <td>861007</td>
       <td>N</td>
-      <td>2</td>
-      <td>14.0</td>
-      <td>660.0</td>
-      <td>17.0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>1534.4</td>
+      <td>7.0</td>
     </tr>
   </tbody>
 </table>
@@ -13321,14 +13321,14 @@ Enter a desired strength: 500
       <th>METOPROLOL_SUCCINATE_RXCUI</th>
       <th>METOPROLOL_SUCCINATE_PA</th>
       <th>...</th>
-      <th>ALLOPURINOL_RXCUI</th>
-      <th>ALLOPURINOL_PA</th>
-      <th>ALLOPURINOL_TIER</th>
-      <th>ALLOPURINOL_CAP</th>
       <th>METFORMIN_RXCUI</th>
       <th>METFORMIN_PA</th>
       <th>METFORMIN_TIER</th>
       <th>METFORMIN_CAP</th>
+      <th>ALLOPURINOL_RXCUI</th>
+      <th>ALLOPURINOL_PA</th>
+      <th>ALLOPURINOL_TIER</th>
+      <th>ALLOPURINOL_CAP</th>
       <th>ANNUAL_TOTAL_COST</th>
       <th>MONTHLY_COPAY</th>
     </tr>
@@ -13336,6 +13336,54 @@ Enter a desired strength: 500
   <tbody>
     <tr>
       <th>0</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>697.8</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>701.4</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
       <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
       <td>S5617</td>
@@ -13347,43 +13395,19 @@ Enter a desired strength: 500
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>124.9</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>706.8</td>
       <td>6.0</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>S5884</td>
-      <td>62</td>
-      <td>0</td>
-      <td>18256</td>
-      <td>77.8</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>161.8</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
+      <th>3</th>
       <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
       <td>First Health Part D Value Plus (PDP)</td>
       <td>S5768</td>
@@ -13395,67 +13419,19 @@ Enter a desired strength: 500
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>6.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>164.2</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>SILVERSCRIPT INSURANCE COMPANY</td>
-      <td>SilverScript Plus (PDP)</td>
-      <td>S5601</td>
-      <td>9</td>
-      <td>0</td>
-      <td>18420</td>
-      <td>84.6</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>6.0</td>
-      <td>180.6</td>
-      <td>8.0</td>
+      <td>722.4</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
-      <td>S5993</td>
-      <td>3</td>
-      <td>0</td>
-      <td>18131</td>
-      <td>99.6</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>207.6</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
       <td>SILVERSCRIPT INSURANCE COMPANY</td>
       <td>SilverScript Choice (PDP)</td>
       <td>S5601</td>
@@ -13467,40 +13443,64 @@ Enter a desired strength: 500
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>214.3</td>
-      <td>15.0</td>
+      <td>6.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>723.6</td>
+      <td>26.0</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
-      <td>AARP MedicareRx Preferred (PDP)</td>
-      <td>S5820</td>
-      <td>3</td>
+      <th>5</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
       <td>0</td>
-      <td>18039</td>
-      <td>86.6</td>
-      <td>0.0</td>
+      <td>18152</td>
+      <td>22.6</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
+      <td>0.0</td>
+      <td>724.2</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>0</td>
+      <td>18043</td>
+      <td>26.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>230.6</td>
-      <td>12.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>750.6</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -13515,187 +13515,19 @@ Enter a desired strength: 500
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>407.9</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>791.8</td>
       <td>4.0</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
-      <td>S5884</td>
-      <td>131</td>
-      <td>0</td>
-      <td>18254</td>
-      <td>37.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>478.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>0</td>
-      <td>18255</td>
-      <td>20.4</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>485.4</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
-      <td>S5660</td>
-      <td>106</td>
-      <td>0</td>
-      <td>18154</td>
-      <td>34.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>487.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>0</td>
-      <td>18043</td>
-      <td>26.8</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>491.8</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>AETNA LIFE INSURANCE COMPANY</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>0</td>
-      <td>18057</td>
-      <td>19.7</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>508.7</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
-      <td>AARP MedicareRx Saver Plus (PDP)</td>
-      <td>S5921</td>
-      <td>349</td>
-      <td>0</td>
-      <td>18040</td>
-      <td>33.2</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>510.2</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>0</td>
-      <td>18155</td>
-      <td>91.7</td>
-      <td>350.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>0.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>537.7</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
       <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
       <td>Symphonix Value Rx (PDP)</td>
       <td>S0522</td>
@@ -13707,19 +13539,19 @@ Enter a desired strength: 500
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>8.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>555.4</td>
-      <td>10.0</td>
+      <td>4.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>877.8</td>
+      <td>9.0</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>9</th>
       <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
       <td>WellCare Classic (PDP)</td>
       <td>S4802</td>
@@ -13731,40 +13563,208 @@ Enter a desired strength: 500
       <td>866436</td>
       <td>N</td>
       <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>2</td>
-      <td>8.0</td>
-      <td>561.9</td>
-      <td>10.0</td>
+      <td>883.8</td>
+      <td>3.0</td>
     </tr>
     <tr>
-      <th>17</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>S5617</td>
-      <td>18</td>
+      <th>10</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>131</td>
       <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
+      <td>18254</td>
+      <td>37.0</td>
       <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>885.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>0</td>
+      <td>18040</td>
+      <td>33.2</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>923.4</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
+      <td>0</td>
+      <td>18154</td>
+      <td>34.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
+      <td>8.0</td>
+      <td>957.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>1041.6</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>1051.2</td>
       <td>3.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
+      <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1077.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>3.0</td>
-      <td>563.8</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
       <td>7.0</td>
+      <td>1193.4</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>1207.2</td>
+      <td>14.0</td>
     </tr>
     <tr>
       <th>18</th>
@@ -13779,88 +13779,88 @@ Enter a desired strength: 500
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>5.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>571.5</td>
-      <td>41.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>1386.0</td>
+      <td>36.0</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>S5660</td>
-      <td>220</td>
-      <td>0</td>
-      <td>18152</td>
-      <td>22.6</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>571.6</td>
-      <td>12.0</td>
-    </tr>
-    <tr>
-      <th>20</th>
       <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
       <td>S5993</td>
-      <td>1</td>
+      <td>3</td>
       <td>0</td>
-      <td>18130</td>
-      <td>47.7</td>
-      <td>405.0</td>
+      <td>18131</td>
+      <td>99.6</td>
+      <td>0.0</td>
       <td>866436</td>
       <td>N</td>
       <td>...</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>3.0</td>
-      <td>584.7</td>
-      <td>11.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>5.0</td>
+      <td>1387.2</td>
+      <td>16.0</td>
     </tr>
     <tr>
-      <th>21</th>
-      <td>ENVISION INSURANCE COMPANY</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>S7694</td>
-      <td>4</td>
+      <th>20</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
       <td>0</td>
-      <td>18364</td>
-      <td>51.0</td>
+      <td>18082</td>
+      <td>74.8</td>
       <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>...</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>197320</td>
       <td>N</td>
       <td>2</td>
       <td>14.0</td>
+      <td>1494.6</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>...</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>660.0</td>
-      <td>17.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>1534.4</td>
+      <td>7.0</td>
     </tr>
   </tbody>
 </table>
@@ -13936,14 +13936,14 @@ Enter a desired strength: 500
       <th>METOPROLOL_SUCCINATE_PA</th>
       <th>METOPROLOL_SUCCINATE_TIER</th>
       <th>METOPROLOL_SUCCINATE_CAP</th>
-      <th>ALLOPURINOL_RXCUI</th>
-      <th>ALLOPURINOL_PA</th>
-      <th>ALLOPURINOL_TIER</th>
-      <th>ALLOPURINOL_CAP</th>
       <th>METFORMIN_RXCUI</th>
       <th>METFORMIN_PA</th>
       <th>METFORMIN_TIER</th>
       <th>METFORMIN_CAP</th>
+      <th>ALLOPURINOL_RXCUI</th>
+      <th>ALLOPURINOL_PA</th>
+      <th>ALLOPURINOL_TIER</th>
+      <th>ALLOPURINOL_CAP</th>
       <th>ANNUAL_TOTAL_COST</th>
       <th>MONTHLY_COPAY</th>
     </tr>
@@ -13951,6 +13951,56 @@ Enter a desired strength: 500
   <tbody>
     <tr>
       <th>0</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Walmart Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>0</td>
+      <td>18255</td>
+      <td>20.4</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>697.8</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AETNA LIFE INSURANCE COMPANY</td>
+      <td>Aetna Medicare Rx Select (PDP)</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>0</td>
+      <td>18057</td>
+      <td>19.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>701.4</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
       <td>Cigna-HealthSpring Rx Secure-Extra (PDP)</td>
       <td>S5617</td>
@@ -13963,44 +14013,19 @@ Enter a desired strength: 500
       <td>N</td>
       <td>1</td>
       <td>4.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>124.9</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>706.8</td>
       <td>6.0</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Enhanced (PDP)</td>
-      <td>S5884</td>
-      <td>62</td>
-      <td>0</td>
-      <td>18256</td>
-      <td>77.8</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>161.8</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
+      <th>3</th>
       <td>FIRST HEALTH LIFE &amp; HEALTH INSURANCE COMPANY</td>
       <td>First Health Part D Value Plus (PDP)</td>
       <td>S5768</td>
@@ -14013,28 +14038,7 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>6.0</td>
       <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>164.2</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>SILVERSCRIPT INSURANCE COMPANY</td>
-      <td>SilverScript Plus (PDP)</td>
-      <td>S5601</td>
-      <td>9</td>
-      <td>0</td>
-      <td>18420</td>
-      <td>84.6</td>
-      <td>0.0</td>
-      <td>866436</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
@@ -14042,40 +14046,11 @@ Enter a desired strength: 500
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>6.0</td>
-      <td>180.6</td>
-      <td>8.0</td>
+      <td>722.4</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
-      <td>S5993</td>
-      <td>3</td>
-      <td>0</td>
-      <td>18131</td>
-      <td>99.6</td>
-      <td>0.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>8.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>207.6</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
       <td>SILVERSCRIPT INSURANCE COMPANY</td>
       <td>SilverScript Choice (PDP)</td>
       <td>S5601</td>
@@ -14088,41 +14063,66 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>14.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>214.3</td>
-      <td>15.0</td>
+      <td>6.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>6.0</td>
+      <td>723.6</td>
+      <td>26.0</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
-      <td>AARP MedicareRx Preferred (PDP)</td>
-      <td>S5820</td>
-      <td>3</td>
+      <th>5</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Saver (PDP)</td>
+      <td>S5660</td>
+      <td>220</td>
       <td>0</td>
-      <td>18039</td>
-      <td>86.6</td>
-      <td>0.0</td>
+      <td>18152</td>
+      <td>22.6</td>
+      <td>405.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>10.0</td>
+      <td>4.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
+      <td>0.0</td>
+      <td>724.2</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Walgreens (PDP)</td>
+      <td>S5921</td>
+      <td>386</td>
+      <td>0</td>
+      <td>18043</td>
+      <td>26.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>230.6</td>
-      <td>12.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>750.6</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>7</th>
@@ -14138,194 +14138,19 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>2.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>407.9</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>791.8</td>
       <td>4.0</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Preferred Rx Plan (PDP)</td>
-      <td>S5884</td>
-      <td>131</td>
-      <td>0</td>
-      <td>18254</td>
-      <td>37.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>478.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>HUMANA INSURANCE COMPANY</td>
-      <td>Humana Walmart Rx Plan (PDP)</td>
-      <td>S5884</td>
-      <td>150</td>
-      <td>0</td>
-      <td>18255</td>
-      <td>20.4</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>4.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>485.4</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Value (PDP)</td>
-      <td>S5660</td>
-      <td>106</td>
-      <td>0</td>
-      <td>18154</td>
-      <td>34.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>487.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
-      <td>AARP MedicareRx Walgreens (PDP)</td>
-      <td>S5921</td>
-      <td>386</td>
-      <td>0</td>
-      <td>18043</td>
-      <td>26.8</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>491.8</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>AETNA LIFE INSURANCE COMPANY</td>
-      <td>Aetna Medicare Rx Select (PDP)</td>
-      <td>S5810</td>
-      <td>278</td>
-      <td>0</td>
-      <td>18057</td>
-      <td>19.7</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>508.7</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
-      <td>AARP MedicareRx Saver Plus (PDP)</td>
-      <td>S5921</td>
-      <td>349</td>
-      <td>0</td>
-      <td>18040</td>
-      <td>33.2</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>4.0</td>
-      <td>510.2</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Choice (PDP)</td>
-      <td>S5660</td>
-      <td>207</td>
-      <td>0</td>
-      <td>18155</td>
-      <td>91.7</td>
-      <td>350.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>7.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>0.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.0</td>
-      <td>537.7</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
       <td>SYMPHONIX HEALTH INSURANCE, INC.</td>
       <td>Symphonix Value Rx (PDP)</td>
       <td>S0522</td>
@@ -14338,19 +14163,19 @@ Enter a desired strength: 500
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>8.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>555.4</td>
-      <td>10.0</td>
+      <td>4.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>877.8</td>
+      <td>9.0</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>9</th>
       <td>WELLCARE PRESCRIPTION INSURANCE, INC.</td>
       <td>WellCare Classic (PDP)</td>
       <td>S4802</td>
@@ -14363,7 +14188,53 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
       <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>883.8</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Preferred Rx Plan (PDP)</td>
+      <td>S5884</td>
+      <td>131</td>
+      <td>0</td>
+      <td>18254</td>
+      <td>37.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>885.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UNITEDHEALTHCARE INS. CO. AND UNITEDHEALTHCARE NY</td>
+      <td>AARP MedicareRx Saver Plus (PDP)</td>
+      <td>S5921</td>
+      <td>349</td>
+      <td>0</td>
+      <td>18040</td>
+      <td>33.2</td>
+      <td>405.0</td>
+      <td>866436</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
@@ -14371,20 +14242,153 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>8.0</td>
-      <td>561.9</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>923.4</td>
       <td>10.0</td>
     </tr>
     <tr>
-      <th>17</th>
-      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
-      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
-      <td>S5617</td>
-      <td>18</td>
+      <th>12</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Value (PDP)</td>
+      <td>S5660</td>
+      <td>106</td>
       <td>0</td>
-      <td>18082</td>
-      <td>74.8</td>
+      <td>18154</td>
+      <td>34.0</td>
       <td>405.0</td>
       <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>957.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>HUMANA INSURANCE COMPANY</td>
+      <td>Humana Enhanced (PDP)</td>
+      <td>S5884</td>
+      <td>62</td>
+      <td>0</td>
+      <td>18256</td>
+      <td>77.8</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>1041.6</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>SILVERSCRIPT INSURANCE COMPANY</td>
+      <td>SilverScript Plus (PDP)</td>
+      <td>S5601</td>
+      <td>9</td>
+      <td>0</td>
+      <td>18420</td>
+      <td>84.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>1051.2</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ENVISION INSURANCE COMPANY</td>
+      <td>EnvisionRxPlus (PDP)</td>
+      <td>S7694</td>
+      <td>4</td>
+      <td>0</td>
+      <td>18364</td>
+      <td>51.0</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1077.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
+      <td>S5993</td>
+      <td>1</td>
+      <td>0</td>
+      <td>18130</td>
+      <td>47.7</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>7.0</td>
+      <td>1193.4</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>UNITEDHEALTHCARE INSURANCE COMPANY</td>
+      <td>AARP MedicareRx Preferred (PDP)</td>
+      <td>S5820</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18039</td>
+      <td>86.6</td>
+      <td>0.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>2</td>
+      <td>10.0</td>
+      <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>1.0</td>
@@ -14392,12 +14396,8 @@ Enter a desired strength: 500
       <td>N</td>
       <td>2</td>
       <td>3.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>563.8</td>
-      <td>7.0</td>
+      <td>1207.2</td>
+      <td>14.0</td>
     </tr>
     <tr>
       <th>18</th>
@@ -14413,91 +14413,91 @@ Enter a desired strength: 500
       <td>N</td>
       <td>3</td>
       <td>36.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>5.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>571.5</td>
-      <td>41.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>1386.0</td>
+      <td>36.0</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
-      <td>Express Scripts Medicare - Saver (PDP)</td>
-      <td>S5660</td>
-      <td>220</td>
+      <td>HORIZON INSURANCE COMPANY</td>
+      <td>Horizon Medicare Blue Rx Enhanced (PDP)</td>
+      <td>S5993</td>
+      <td>3</td>
       <td>0</td>
-      <td>18152</td>
-      <td>22.6</td>
-      <td>405.0</td>
+      <td>18131</td>
+      <td>99.6</td>
+      <td>0.0</td>
       <td>866436</td>
       <td>N</td>
       <td>2</td>
-      <td>4.0</td>
+      <td>8.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>3.0</td>
       <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>5.0</td>
+      <td>1387.2</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>CIGNA HEALTH AND LIFE INSURANCE COMPANY</td>
+      <td>Cigna-HealthSpring Rx Secure (PDP)</td>
+      <td>S5617</td>
+      <td>18</td>
+      <td>0</td>
+      <td>18082</td>
+      <td>74.8</td>
+      <td>405.0</td>
+      <td>866436</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>861007</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>197320</td>
+      <td>N</td>
+      <td>2</td>
+      <td>14.0</td>
+      <td>1494.6</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>MEDCO CONTAINMENT LIFE AND MEDCO CONTAINMENT NY</td>
+      <td>Express Scripts Medicare - Choice (PDP)</td>
+      <td>S5660</td>
+      <td>207</td>
+      <td>0</td>
+      <td>18155</td>
+      <td>91.7</td>
+      <td>350.0</td>
+      <td>866436</td>
       <td>N</td>
       <td>2</td>
       <td>7.0</td>
       <td>861007</td>
       <td>N</td>
       <td>1</td>
-      <td>1.0</td>
-      <td>571.6</td>
-      <td>12.0</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>HORIZON INSURANCE COMPANY</td>
-      <td>Horizon Medicare Blue Rx Standard (PDP)</td>
-      <td>S5993</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18130</td>
-      <td>47.7</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>8.0</td>
+      <td>0.0</td>
       <td>197320</td>
       <td>N</td>
       <td>1</td>
       <td>0.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>3.0</td>
-      <td>584.7</td>
-      <td>11.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>ENVISION INSURANCE COMPANY</td>
-      <td>EnvisionRxPlus (PDP)</td>
-      <td>S7694</td>
-      <td>4</td>
-      <td>0</td>
-      <td>18364</td>
-      <td>51.0</td>
-      <td>405.0</td>
-      <td>866436</td>
-      <td>N</td>
-      <td>2</td>
-      <td>3.0</td>
-      <td>197320</td>
-      <td>N</td>
-      <td>2</td>
-      <td>14.0</td>
-      <td>861007</td>
-      <td>N</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>660.0</td>
-      <td>17.0</td>
+      <td>1534.4</td>
+      <td>7.0</td>
     </tr>
   </tbody>
 </table>
@@ -14520,7 +14520,7 @@ Enter a desired strength: 500
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
@@ -14530,9 +14530,8 @@ Enter a desired strength: 500
 <span class="s2">                       cast(PNF_DATA.PLAN_ID as integer)=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">PLAN_ID</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; and </span><span class="se">\</span>
 <span class="s2">                       cast(PNF_DATA.SEGMENT_ID as integer)=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SEGMENT_ID</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; and </span><span class="se">\</span>
 <span class="s2">                       PNF_DATA.PREFERRED_STATUS_RETAIL=&#39;Y&#39; and </span><span class="se">\</span>
-<span class="s2">                       PNF_DATA.PHARMACY_ZIPCODE like &#39;&quot;</span><span class="o">+</span><span class="n">user_zip</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;%&#39; and </span><span class="se">\</span>
-<span class="s2">                       NCPDP.NPI is substr(PNF_DATA.PHARMACY_NUMBER,3) </span><span class="se">\</span>
-<span class="s2">                 limit 5&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">))</span>
+<span class="s2">                       PNF_DATA.PHARMACY_ZIPCODE like &#39;&quot;</span><span class="o">+</span><span class="n">user_zip</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;%&#39; and </span><span class="se">\</span>
+<span class="s2">                       NCPDP.NPI is substr(PNF_DATA.PHARMACY_NUMBER,3)&quot;</span><span class="p">,</span><span class="n">conn</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -14591,6 +14590,1541 @@ Enter a desired strength: 500
   <tbody>
     <tr>
       <th>0</th>
+      <td>SAMS PHARMACY</td>
+      <td>2019740556</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>000</td>
+      <td>101518984657</td>
+      <td>07094</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SAMS PHARMACY</td>
+      <td>9085879820</td>
+      <td>S5884</td>
+      <td>150</td>
+      <td>000</td>
+      <td>101104007772</td>
+      <td>07036</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PHARMACY_NAME</th>
+      <th>PHONE</th>
+      <th>CONTRACT_ID</th>
+      <th>PLAN_ID</th>
+      <th>SEGMENT_ID</th>
+      <th>PHARMACY_NUMBER</th>
+      <th>PHARMACY_ZIPCODE</th>
+      <th>PREFERRED_STATUS_RETAIL</th>
+      <th>PREFERRED_STATUS_MAIL</th>
+      <th>PHARMACY_RETAIL</th>
+      <th>PHARMACY_MAIL</th>
+      <th>IN_AREA_FLAG</th>
+      <th>BRAND_DISPENSING_FEE_30</th>
+      <th>BRAND_DISPENSING_FEE_60</th>
+      <th>BRAND_DISPENSING_FEE_90</th>
+      <th>GENERIC_DISPENSING_FEE_30</th>
+      <th>GENERIC_DISPENSING_FEE_60</th>
+      <th>GENERIC_DISPENSING_FEE_90</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CVS PHARMACY # 08924</td>
+      <td>2013132254</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101891015475</td>
+      <td>07020</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TARGET PHARMACY</td>
+      <td>9086229003</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101538320882</td>
+      <td>07088</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CVS PHARMACY</td>
+      <td>9083514940</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101447442843</td>
+      <td>07083</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CVS PHARMACY</td>
+      <td>2014203286</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101801919907</td>
+      <td>07030</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>TARGET PHARMACY</td>
+      <td>9084442024</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101972525590</td>
+      <td>07080</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9734717499</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101154436939</td>
+      <td>07055</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ACME PHARMACY #1893</td>
+      <td>2018670750</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101497122246</td>
+      <td>07086</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ACME PHARMACY #1096</td>
+      <td>9082415421</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101396112231</td>
+      <td>07033</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ACME PHARMACY #1097</td>
+      <td>9087911600</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101144697962</td>
+      <td>07080</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>ACME PHARMACY #1782</td>
+      <td>7329433304</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101790152536</td>
+      <td>07066</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>ACME PHARMACY #1065</td>
+      <td>2013460002</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101063889350</td>
+      <td>07024</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>ACME PHARMACY #1764</td>
+      <td>9737467471</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101457728271</td>
+      <td>07043</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>ACME PHARMACY #1777</td>
+      <td>2018407764</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101174990907</td>
+      <td>07020</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>ACME PHARMACY #1856</td>
+      <td>2012721171</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101598132342</td>
+      <td>07093</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>CVS PHARMACY # 10611</td>
+      <td>4017651500</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101548636020</td>
+      <td>07036</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>CVS PHARMACY# 10211</td>
+      <td>9737630124</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101861888299</td>
+      <td>07040</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>CVS PHARMACY# 10289</td>
+      <td>4017651500</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101871909143</td>
+      <td>07022</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>CVS PHARMACY# 10087</td>
+      <td>4017651500</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101033524533</td>
+      <td>07052</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>SHOPRITE PHARMACY OF UNION</td>
+      <td>6095450415</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101508289554</td>
+      <td>07083</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>COSTCO PHARMACY #1166</td>
+      <td>9085465676</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101841625167</td>
+      <td>07060</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>TARGET PHARMACY</td>
+      <td>2015201702</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101245252865</td>
+      <td>07047</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>WEGMANS PHARMACY 0010</td>
+      <td>8564882745</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101548244643</td>
+      <td>07095</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>TARGET PHARMACY</td>
+      <td>9733300003</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101265454888</td>
+      <td>07014</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>SHOPRITE PHARMACY OF HOBOKEN</td>
+      <td>2017929652</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101477691244</td>
+      <td>07030</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>CVS PHARMACY</td>
+      <td>9733798771</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101962594432</td>
+      <td>07081</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>CVS PHARMACY</td>
+      <td>9736282004</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101568554160</td>
+      <td>07035</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>CVS PHARMACY</td>
+      <td>9083012871</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101174615645</td>
+      <td>07027</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>CVS PHARMACY</td>
+      <td>2012467233</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101124110721</td>
+      <td>07031</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>TARGET PHARMACY</td>
+      <td>7328821057</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101538181151</td>
+      <td>07066</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9085231663</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101700991585</td>
+      <td>07036</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>CVS PHARMACY</td>
+      <td>2018635535</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101801988530</td>
+      <td>07094</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>QUICK CHEK PHARMACY DEPT</td>
+      <td>2018693553</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101346375482</td>
+      <td>07047</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>CVS PHARMACY</td>
+      <td>7323961990</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101194809624</td>
+      <td>07065</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>CVS PHARMACY</td>
+      <td>9736690115</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101568546091</td>
+      <td>07052</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>CVS PHARMACY</td>
+      <td>9735750003</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101659455186</td>
+      <td>07006</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>CVS PHARMACY</td>
+      <td>9737466500</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101457434797</td>
+      <td>07042</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>QUICK CHEK PHARMACY DEPT</td>
+      <td>2014372193</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101649305780</td>
+      <td>07002</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>CVS PHARMACY</td>
+      <td>9089646560</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101811070154</td>
+      <td>07083</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>CVS PHARMACY</td>
+      <td>9738572550</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101902989247</td>
+      <td>07009</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>CVS PHARMACY</td>
+      <td>9089252353</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101376626614</td>
+      <td>07036</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9733354882</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101588779359</td>
+      <td>07054</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>CVS PHARMACY</td>
+      <td>9737438100</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101467535708</td>
+      <td>07003</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>QUICK CHEK PHARMACY DEPT</td>
+      <td>9083222112</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101487789517</td>
+      <td>07076</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>QUICK CHEK PHARMACY DEPT</td>
+      <td>9737730055</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101851426993</td>
+      <td>07055</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>CVS PHARMACY</td>
+      <td>2019974601</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101649353988</td>
+      <td>07032</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>CVS PHARMACY</td>
+      <td>2018693930</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101750464384</td>
+      <td>07047</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>CVS PHARMACY</td>
+      <td>2019474840</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101225111552</td>
+      <td>07024</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>CVS PHARMACY</td>
+      <td>9087571965</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101679656201</td>
+      <td>07060</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>CVS PHARMACY</td>
+      <td>9085616677</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101760565394</td>
+      <td>07080</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>CVS PHARMACY</td>
+      <td>7325419525</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101023111846</td>
+      <td>07008</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9735750030</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101033224803</td>
+      <td>07006</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>CVS PHARMACY</td>
+      <td>2019970333</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101770666091</td>
+      <td>07031</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9733252136</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101174663371</td>
+      <td>07052</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>CVS PHARMACY</td>
+      <td>9737469600</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101043393366</td>
+      <td>07043</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>7323811133</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101124133996</td>
+      <td>07066</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9734673162</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101306951173</td>
+      <td>07081</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9739926854</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101134234909</td>
+      <td>07039</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>CVS PHARMACY</td>
+      <td>9736611212</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101134202450</td>
+      <td>07014</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>2019913568</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101780799551</td>
+      <td>07031</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9736748822</td>
+      <td>S5810</td>
+      <td>278</td>
+      <td>000</td>
+      <td>101871608646</td>
+      <td>07018</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>105 rows × 18 columns</p>
+</div>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PHARMACY_NAME</th>
+      <th>PHONE</th>
+      <th>CONTRACT_ID</th>
+      <th>PLAN_ID</th>
+      <th>SEGMENT_ID</th>
+      <th>PHARMACY_NUMBER</th>
+      <th>PHARMACY_ZIPCODE</th>
+      <th>PREFERRED_STATUS_RETAIL</th>
+      <th>PREFERRED_STATUS_MAIL</th>
+      <th>PHARMACY_RETAIL</th>
+      <th>PHARMACY_MAIL</th>
+      <th>IN_AREA_FLAG</th>
+      <th>BRAND_DISPENSING_FEE_30</th>
+      <th>BRAND_DISPENSING_FEE_60</th>
+      <th>BRAND_DISPENSING_FEE_90</th>
+      <th>GENERIC_DISPENSING_FEE_30</th>
+      <th>GENERIC_DISPENSING_FEE_60</th>
+      <th>GENERIC_DISPENSING_FEE_90</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MEDICINE SHOPPE</td>
+      <td>9732393339</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101679685671</td>
+      <td>07009</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TERRY DRUGS</td>
+      <td>9733387300</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101720143936</td>
+      <td>07003</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RAPPS PHARMACY INC</td>
+      <td>9087560008</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101659478576</td>
+      <td>07060</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>WEST END PHARMACY</td>
+      <td>2014382164</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101073667424</td>
+      <td>07070</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9736748822</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101871608646</td>
+      <td>07018</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
       <td>TERRYS FAMILY PHARMACY INC</td>
       <td>9732392200</td>
       <td>S5617</td>
@@ -14611,7 +16145,385 @@ Enter a desired strength: 500
       <td>0.4</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>6</th>
+      <td>HINES PHARMACY</td>
+      <td>2013482667</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101770598385</td>
+      <td>07087</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>BELLS PHARMACY</td>
+      <td>9082760062</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101639285042</td>
+      <td>07016</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>HUDACKOS PHARMACY INC</td>
+      <td>2014364488</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101316043573</td>
+      <td>07002</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>2019913568</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101780799551</td>
+      <td>07031</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>SHORT HILLS PHARMACY</td>
+      <td>9733793333</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101841213261</td>
+      <td>07078</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>MARRAS DRUG STORE</td>
+      <td>2018653540</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101457489718</td>
+      <td>07094</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>AVENEL PHARMACY</td>
+      <td>7326341914</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101316044241</td>
+      <td>07001</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>BROCKMANS PHARMACY</td>
+      <td>2014372175</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101962420612</td>
+      <td>07002</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>MIDDLE VILLAGE PHARMACY INC</td>
+      <td>9734780600</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101134226061</td>
+      <td>07011</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>RITE CARE PHARMACY</td>
+      <td>9736765959</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101427139302</td>
+      <td>07018</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>VARIETY DRUG</td>
+      <td>9737795951</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101578614673</td>
+      <td>07026</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>GLEN RIDGE PHARMACY</td>
+      <td>9737435900</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101326059841</td>
+      <td>07028</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>NORTHFIELD PHARMACY</td>
+      <td>9739924050</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101265500060</td>
+      <td>07039</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9739926854</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101134234909</td>
+      <td>07039</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PETER PAN PHARMACY</td>
+      <td>9087547607</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101508904640</td>
+      <td>07080</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PARENTINIS PHARMACY</td>
+      <td>2018632700</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101720191265</td>
+      <td>07087</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>FARMACIA SANTA MARIA</td>
+      <td>2018646307</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101992796379</td>
+      <td>07087</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>PRESCRIPTION CENTER PHARMACY</td>
+      <td>2018642004</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101790874980</td>
+      <td>07087</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>24</th>
       <td>KEILS PHARMACY</td>
       <td>9737442113</td>
       <td>S5617</td>
@@ -14632,14 +16544,35 @@ Enter a desired strength: 500
       <td>0.4</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>NORTH BERGEN PHARMACY</td>
-      <td>2018686900</td>
+      <th>25</th>
+      <td>H SINGERS PHARMACY</td>
+      <td>2018641168</td>
       <td>S5617</td>
       <td>249</td>
       <td>000</td>
-      <td>101992713283</td>
-      <td>07047</td>
+      <td>101508909326</td>
+      <td>07093</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>PAN AMERICAN PHARMACY</td>
+      <td>2018617966</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101598847436</td>
+      <td>07093</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
@@ -14653,148 +16586,347 @@ Enter a desired strength: 500
       <td>0.6</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>TOWN AND COUNTRY PHARMACY</td>
-      <td>9737622700</td>
+      <th>27</th>
+      <td>BARONS FAMILY PHARMACY INC</td>
+      <td>9082326680</td>
       <td>S5617</td>
       <td>249</td>
       <td>000</td>
-      <td>101194716548</td>
-      <td>07040</td>
+      <td>101770680605</td>
+      <td>07090</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>0.6</td>
-      <td>0.6</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>ATLAS DRUG AND NUTRITION</td>
-      <td>2018695990</td>
+      <th>28</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>9734673162</td>
       <td>S5617</td>
       <td>249</td>
       <td>000</td>
-      <td>101417992629</td>
-      <td>07047</td>
+      <td>101306951173</td>
+      <td>07081</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>0.6</td>
-      <td>0.6</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PHARMACY_NAME</th>
-      <th>PHONE</th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>SEGMENT_ID</th>
-      <th>PHARMACY_NUMBER</th>
-      <th>PHARMACY_ZIPCODE</th>
-      <th>PREFERRED_STATUS_RETAIL</th>
-      <th>PREFERRED_STATUS_MAIL</th>
-      <th>PHARMACY_RETAIL</th>
-      <th>PHARMACY_MAIL</th>
-      <th>IN_AREA_FLAG</th>
-      <th>BRAND_DISPENSING_FEE_30</th>
-      <th>BRAND_DISPENSING_FEE_60</th>
-      <th>BRAND_DISPENSING_FEE_90</th>
-      <th>GENERIC_DISPENSING_FEE_30</th>
-      <th>GENERIC_DISPENSING_FEE_60</th>
-      <th>GENERIC_DISPENSING_FEE_90</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>WALGREENS #13701</td>
-      <td>9735590901</td>
-      <td>S5884</td>
-      <td>062</td>
-      <td>000</td>
-      <td>101780826776</td>
-      <td>07044</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>N</td>
-      <td>1</td>
-      <td>1.2</td>
+      <td>0.4</td>
       <td>0</td>
-      <td>1.2</td>
-      <td>1.2</td>
       <td>0</td>
-      <td>1.2</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>29</th>
+      <td>SHOPRITE PHARMACY</td>
+      <td>7323811133</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101124133996</td>
+      <td>07066</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>LEXANN PHARMACY LLC</td>
+      <td>9736781700</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101215161393</td>
+      <td>07018</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.4</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>WALGREENS #12593</td>
+      <td>7328272904</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101417189911</td>
+      <td>07095</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>METRO DRUGS</td>
+      <td>2012531100</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101407183676</td>
+      <td>07030</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>FENNY 1 PHARMACY</td>
+      <td>9739282230</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101770810574</td>
+      <td>07055</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>KWICKMED FARMACIA</td>
+      <td>2017588982</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101730416892</td>
+      <td>07087</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>NOUR PHARMACY</td>
+      <td>9739554000</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101114242484</td>
+      <td>07011</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>LIBERTY PHARMACY</td>
+      <td>2013335333</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101841516564</td>
+      <td>07002</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>159</th>
       <td>WALGREENS</td>
-      <td>9737617391</td>
-      <td>S5884</td>
-      <td>062</td>
+      <td>2018302410</td>
+      <td>S5617</td>
+      <td>249</td>
       <td>000</td>
-      <td>101174806756</td>
-      <td>07040</td>
+      <td>101194043752</td>
+      <td>07030</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>1.2</td>
+      <td>1.3</td>
       <td>0</td>
-      <td>1.2</td>
-      <td>1.2</td>
       <td>0</td>
-      <td>1.2</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>160</th>
+      <td>CLIFFSIDE PARK PHARMACY</td>
+      <td>2013139711</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101619295664</td>
+      <td>07010</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>PHARMACY PLUS &amp; SURGICAL SUPPLIES LLC</td>
+      <td>9739009275</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101689986424</td>
+      <td>07029</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>IDEAL PHARMACY CORP</td>
+      <td>9086881801</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101902115686</td>
+      <td>07083</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>CONTINENTAL DRUGS</td>
+      <td>2018543535</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101023312477</td>
+      <td>07093</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>164</th>
       <td>WALGREENS</td>
       <td>2018546092</td>
-      <td>S5884</td>
-      <td>062</td>
+      <td>S5617</td>
+      <td>249</td>
       <td>000</td>
       <td>101265739049</td>
       <td>07047</td>
@@ -14803,173 +16935,373 @@ Enter a desired strength: 500
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>1.2</td>
+      <td>1.3</td>
       <td>0</td>
-      <td>1.2</td>
-      <td>1.2</td>
       <td>0</td>
-      <td>1.2</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PHARMACY_NAME</th>
-      <th>PHONE</th>
-      <th>CONTRACT_ID</th>
-      <th>PLAN_ID</th>
-      <th>SEGMENT_ID</th>
-      <th>PHARMACY_NUMBER</th>
-      <th>PHARMACY_ZIPCODE</th>
-      <th>PREFERRED_STATUS_RETAIL</th>
-      <th>PREFERRED_STATUS_MAIL</th>
-      <th>PHARMACY_RETAIL</th>
-      <th>PHARMACY_MAIL</th>
-      <th>IN_AREA_FLAG</th>
-      <th>BRAND_DISPENSING_FEE_30</th>
-      <th>BRAND_DISPENSING_FEE_60</th>
-      <th>BRAND_DISPENSING_FEE_90</th>
-      <th>GENERIC_DISPENSING_FEE_30</th>
-      <th>GENERIC_DISPENSING_FEE_60</th>
-      <th>GENERIC_DISPENSING_FEE_90</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
-      <th>0</th>
-      <td>ACME PHARMACY #1764</td>
-      <td>9737467471</td>
-      <td>S5768</td>
-      <td>127</td>
+      <th>165</th>
+      <td>HARRY'S PHARMACY DEPT.</td>
+      <td>2016627575</td>
+      <td>S5617</td>
+      <td>249</td>
       <td>000</td>
-      <td>101457728271</td>
-      <td>07043</td>
+      <td>101730479221</td>
+      <td>07047</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>CVS PHARMACY# 10211</td>
-      <td>9737630124</td>
-      <td>S5768</td>
-      <td>127</td>
+      <th>166</th>
+      <td>WALGREENS 11357</td>
+      <td>9734733062</td>
+      <td>S5617</td>
+      <td>249</td>
       <td>000</td>
-      <td>101861888299</td>
+      <td>101477849164</td>
+      <td>07012</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>UNITED PHARMACY</td>
+      <td>2017581415</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101245510270</td>
+      <td>07093</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>WALGREENS</td>
+      <td>9737617391</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101174806756</td>
       <td>07040</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>TARGET PHARMACY</td>
-      <td>2015201702</td>
-      <td>S5768</td>
-      <td>127</td>
+      <th>169</th>
+      <td>MEDICAL CENTER PHARMACY</td>
+      <td>9735350900</td>
+      <td>S5617</td>
+      <td>249</td>
       <td>000</td>
-      <td>101245252865</td>
-      <td>07047</td>
+      <td>101083999635</td>
+      <td>07039</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>CVS PHARMACY</td>
-      <td>9737831741</td>
-      <td>S5768</td>
-      <td>127</td>
+      <th>170</th>
+      <td>WALGREENS</td>
+      <td>2177092326</td>
+      <td>S5617</td>
+      <td>249</td>
       <td>000</td>
-      <td>101336231927</td>
-      <td>07042</td>
+      <td>101609144377</td>
+      <td>07087</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
-      <td>0.4</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>SHOPRITE PHARMACY OF COLUMBIA PARK</td>
-      <td>2018657050</td>
-      <td>S5768</td>
-      <td>127</td>
+      <th>171</th>
+      <td>WELLCARE PHARMACY</td>
+      <td>2015909040</td>
+      <td>S5617</td>
+      <td>249</td>
       <td>000</td>
-      <td>101992810774</td>
-      <td>07047</td>
+      <td>101225314198</td>
+      <td>07087</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>UNION CITY PHARMACY</td>
+      <td>2012508290</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101952672859</td>
+      <td>07087</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>STAR PHARMACY</td>
+      <td>2012248877</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101497020242</td>
+      <td>07024</td>
       <td>Y</td>
       <td>N</td>
       <td>Y</td>
       <td>N</td>
       <td>1</td>
       <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>WALGREENS</td>
+      <td>9086868446</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101386991867</td>
+      <td>07083</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>WALGREENS</td>
+      <td>2016626280</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101740532316</td>
+      <td>07093</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>BEST PHARMACY &amp; SURGICAL INC.</td>
+      <td>9737733300</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101164766390</td>
+      <td>07055</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
       <td>1</td>
       <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>LIVINGSTON PHARMACY</td>
+      <td>#N/A</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101699010785</td>
+      <td>07039</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>PARK AVENUE PHARMACY</td>
+      <td>2018251995</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101881932093</td>
+      <td>07086</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
       <td>1</td>
       <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>WEST ORANGE FAMILY PHARMACY</td>
+      <td>9733251020</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101447590161</td>
+      <td>07052</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
       <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>WALGREENS</td>
+      <td>9735645201</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101639518384</td>
+      <td>07081</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>181</th>
+      <td>ST PHILO PHARMACY</td>
+      <td>2019556260</td>
+      <td>S5617</td>
+      <td>249</td>
+      <td>000</td>
+      <td>101932531936</td>
+      <td>07031</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>0.6</td>
+      <td>0.6</td>
     </tr>
   </tbody>
 </table>
+<p>182 rows × 18 columns</p>
 </div>
 </div>
 
