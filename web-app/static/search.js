@@ -1,20 +1,23 @@
-$('#drug_search_fields').on('keyup','#drug_name',function(){
+$('#drug_search_fields').on('keyup','#drug_name, #drug_strength',function(){
     let name = $(this).parent().find('#drug_name').val().trim(); // remove any spaces around the text
     let strength = $(this).parent().find('#drug_strength').val().trim();
-    if (strength == "") strenth = "empty";
+    if (strength == "") strength = "empty";
     if(name != ""){ // don't make requests with an empty string
         $.ajax({
             url: "search",
             data: {dname: name, dstrength: strength},
             dataType: "json",
             success: function(data){
-                $(this).parent().find('#results').html(data.results);
+              $('#results').html(data.results);
             }
         });
     }else{
         $(this).parent().find('#results').html(""); // set the results empty in case of empty string
     }
 });
+function add_drug(){
+  $('#drug_set').append('<li>'+$('#drug_list option:selected').val()+'</li>');
+}
 function renderDrugSearch(){
   let dsearch =
   `<div class="drug_search">

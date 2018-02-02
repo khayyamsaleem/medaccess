@@ -39,9 +39,9 @@ def search():
     for i in range(len(result)):
         for j in range(len(result[i])):
             result[i][j] = result[i][j].encode('ascii','ignore')
-    dropdown = '<div class="results"><select>'
+    dropdown = '<div class="results"><select id="drug_list">'
     for i in result: dropdown += '<option value ="%s">%s</option>'%(i,i[3])
-    dropdown += '</select></div>'
+    dropdown += '</select><button id="add_drug" type="button" onclick="add_drug();">SAVE</button></div>'
     return json.dumps({"results":dropdown})
 
 @app.route("/pdp_region_code")
