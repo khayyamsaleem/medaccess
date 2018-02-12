@@ -17,6 +17,14 @@ $('#drug_search_fields').on('keyup','#drug_name, #drug_strength',function(){
 });
 function add_drug(){
   $('#drug_set').append('<li>'+$('#drug_list option:selected').val()+'</li>');
+  $.ajax({
+    url: "save_rxcui",
+    data: {rxcui: $('#drug_list option:selected').val()},
+    dataType: "json",
+    success: function(data){
+      console.log("sent rxcui "+$('#drug_list option:selected').val()+"to server");
+    }
+  });
 }
 function renderDrugSearch(){
   let dsearch =
@@ -28,7 +36,7 @@ function renderDrugSearch(){
       <br>
   </div>`
   for(let i = 0; i < $('#numdrugs').val(); i++){
-    $('#drug_search_fields').append(dsearch)
+    $('#drug_search_fields').append(dsearch);
   }
 }
 function get_pdp_region_code(){
@@ -47,3 +55,13 @@ function get_pdp_region_code(){
         $("#pdp_region_code").html("");
     }
 };
+function fetch_formularies(){
+  $.ajax({
+    url: 'formularies',
+    data: {},
+    dataType: "json",
+    success: (data) => {
+      $('#formularies').html(data.results);
+    }
+  });
+}
