@@ -79,7 +79,7 @@ create table FORMULARY_DATA(
     FORMULARY_ID varchar,
     FORMULARY_VERSION int(1),
     CONTRACT_YEAR int(4),
-    RXCUI int,
+    RXCUI varchar,
     NDC varchar,
     TIER_LEVEL_VALUE int,
     QUANTITY_LIMIT_YN varchar(1),
@@ -159,9 +159,8 @@ create table PNF_DATA(
 .import '../data/NDC_DRUG_FILE_LIST_UTF8.csv' NDC_DATA
 .import '../data/2018NCPDPFILE_CLEAN.csv' NCPDP
 .import '../data/RXCUI_DATA.csv' RXCUI_DATA
-.separator "|"
-.import '../data/pnf/1.txt' PNF_DATA
-.import '../data/pnf/2.txt' PNF_DATA
-.import '../data/pnf/3.txt' PNF_DATA
-.import '../data/pnf/4.txt' PNF_DATA
-.import '../data/pnf/5.txt' PNF_DATA
+.import '../data/pnf/1.csv' PNF_DATA
+.import '../data/pnf/2.csv' PNF_DATA
+.import '../data/pnf/3.csv' PNF_DATA
+.import '../data/pnf/4.csv' PNF_DATA
+.import '../data/pnf/5.csv' PNF_DATA
