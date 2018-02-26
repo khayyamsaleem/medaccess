@@ -1,19 +1,24 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, g
 import json
 import sqlite3
 import pandas as pd
 
-conn = sqlite3.connect("db/pharm_data.db", check_same_thread=False)
+DATABASE = '/var/www/html/medaccess/db/pharm_data.db'
+
+
+app = Flask(__name__)
+app.config.from_object(__name__)
+app.config.update(dict(
+    DEBUG=True,
+))
+
+conn = sqlite3.connect(app.config['DATABASE'], check_same_thread=False)
+
 
 global_vars = {
     "prc": None,
     "meds": []
 }
-
-app = Flask(__name__)
-app.config.update(dict(
-    DEBUG=True,
-))
 
 @app.route("/")
 def index():
