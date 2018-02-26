@@ -2,8 +2,17 @@ from flask import Flask, request, render_template, g
 import json
 import sqlite3
 import pandas as pd
+import os
 
-DATABASE = '/var/www/html/medaccess/db/pharm_data.db'
+DATABASE = ''
+
+try:
+    if os.environ['ENV'] == 'prod':
+        DATABASE = '/var/www/html/medaccess/db/pharm_data.db'
+    else:
+        DATABASE = './db/pharm_data.db'
+except:
+    DATABASE = './db/pharm_data.db'
 
 
 app = Flask(__name__)
