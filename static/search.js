@@ -1,4 +1,16 @@
-$('#drug_search_fields').on('keyup','#drug_name, #drug_strength',function(){
+function throttle(f, delay){
+    var timer = null;
+    return function(){
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = window.setTimeout(function(){
+            f.apply(context, args);
+        },
+        delay || 500);
+    };
+}
+
+$('#drug_search_fields').on('keyup','#drug_name, #drug_strength',throttle(function(){
     let name = $(this).parent().find('#drug_name').val().trim(); // remove any spaces around the text
     let strength = $(this).parent().find('#drug_strength').val().trim();
     if (strength == "") strength = "empty";
@@ -14,7 +26,7 @@ $('#drug_search_fields').on('keyup','#drug_name, #drug_strength',function(){
     }else{
         $(this).parent().find('#results').html(""); // set the results empty in case of empty string
     }
-});
+}));
 function add_drug(){
   $('#drug_set').append('<li>'+$('#drug_list option:selected').val()+'</li>');
   $.ajax({

@@ -24,24 +24,51 @@ def index():
 def search():
     drug = request.args['dname'].encode('ascii','ignore')
     strength = request.args['dstrength'].encode('ascii','ignore')
+    result = None
     if strength != "empty":
         result = map(list,conn.execute("select * \
                               from RXCUI_DATA \
-                              where (upper(PSN) like '%"+drug.upper()+"%' or \
-                                    upper(BRAND_NAME) like '%"+drug.upper()+"%') and \
+                              where (upper(FULL_NAME) like '%"+drug.upper()+"%' or \
+                                    upper(PSN) like '%"+drug.upper()+"%' or \
+                                    upper(BRAND_NAME) like '%"+drug.upper()+"%' or \
+                                    upper(FULL_GENERIC_NAME) like '%"+drug.upper()+"%'\
+                                    ) and \
                                     upper(STRENGTH) like '%"+strength.upper()+"%'\
                              limit 10").fetchall())
     else:
         result = map(list,conn.execute("select * \
                               from RXCUI_DATA \
-                              where (upper(PSN) like '%"+drug.upper()+"%' or \
+                              where (upper(FULL_NAME) like '%"+drug.upper()+"%' or \
+                                    upper(PSN) like '%"+drug.upper()+"%' or\
+                                    upper(FULL_GENERIC_NAME) like '%"+drug.upper()+"%' or\
                                     upper(BRAND_NAME) like '%"+drug.upper()+"%') \
                               limit 10").fetchall())
     for i in range(len(result)):
         for j in range(len(result[i])):
             result[i][j] = result[i][j].encode('ascii','ignore')
     dropdown = '<div class="results"><select id="drug_list">'
-    for i in result: dropdown += '<option value ="%s">%s</option>'%(i[0] if i[1]=='' else i[1],i[3])
+    for i in result:
+        rxcui,generic_rxcui = i[0], i[1]
+        accept = ""
+        # if nan_check(i[0]):
+        #     if i[1] != '':
+        #         if nan_check(i[1]):
+        #             continue
+        #         else:
+        #             accept = i[1]
+        #     else:
+        #         continue
+        # else:
+        #     accept=i[0]
+        if nan_check(generic_rxcui):
+            if nan_check(rxcui):
+                continue
+            else:
+                accept = rxcui
+        else:
+            accept = generic_rxcui
+
+        dropdown += '<option value ="%s">%s</option>'%(accept,i[3])
     dropdown += '</select><button id="add_drug" type="button" onclick="add_drug();">SAVE</button></div>'
     return json.dumps({"results":dropdown})
 
@@ -66,11 +93,25 @@ def save_rxcui():
 
 @app.route("/clear_data")
 def clear_data():
-    global_vars = {
-        "prc": None,
-        "meds": []
-    }
+    global_vars["prc"] = None
+    global_vars["meds"] = []
     return json.dumps({"status":"ok"})
+
+def nan_check(med):
+    if med == "": return True
+    df = pd.read_sql(" ".join(("select \
+             MED as MED_"+med+",\
+             FORMULARY_ID\
+     from \
+         BIG_RXCUI_TABLE\
+     where \
+           PDP_REGION_CODE is '"+str(global_vars['prc'])+"' and \
+           MED like '%"+med+"'\
+     order by FORMULARY_ID").split()),conn)\
+ .drop_duplicates(subset='FORMULARY_ID',keep='first')\
+ .reset_index(drop=True)\
+ [['MED_'+med]]
+    return df.empty
 
 @app.route("/formularies")
 def send_formularies():
@@ -137,7 +178,8 @@ def send_formularies():
                 del out['MONTHLY_COPAY']
             out['ANNUAL_TOTAL_COST'] = (out[[c for c in out.columns if c[:3] == 'CAP']]*12).sum(axis=1) + out['PREMIUM']*12 + out['DEDUCTIBLE']
             out['MONTHLY_COPAY'] = out[[c for c in out.columns if c[:3] == 'CAP']].sum(axis=1)
-            out = out.sort_values(by='ANNUAL_TOTAL_COST').reset_index(drop=True)
+            out = out.sort_values(by='ANNUAL_TOTAL_COST').reset_index(drop=True).dropna()
+
     return json.dumps({"results":out.to_html()})
 
 
