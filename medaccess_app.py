@@ -64,6 +64,14 @@ def save_rxcui():
     global_vars['meds'].append(request.args['rxcui'])
     return json.dumps({"status":"ok"})
 
+@app.route("/clear_data")
+def clear_data():
+    global_vars = {
+        "prc": None,
+        "meds": []
+    }
+    return json.dumps({"status":"ok"})
+
 @app.route("/formularies")
 def send_formularies():
     out = pd.read_sql("select \

@@ -22,7 +22,7 @@ function add_drug(){
     data: {rxcui: $('#drug_list option:selected').val()},
     dataType: "json",
     success: function(data){
-      console.log("sent rxcui "+$('#drug_list option:selected').val()+"to server");
+      console.log("sent rxcui "+$('#drug_list option:selected').val()+" to server");
     }
   });
 }
@@ -62,6 +62,21 @@ function fetch_formularies(){
     dataType: "json",
     success: (data) => {
       $('#formularies').html(data.results);
+    }
+  });
+}
+function clear_data(){
+  $.ajax({
+    url:'clear_data',
+    data:{},
+    dataType:"json",
+    success: (data) => {
+      console.log("here");
+      $('#results').html("");
+      $('#formularies').html("");
+      $('#pdp_region_code').html("");
+      $('#drug_search_fields').html("");
+      $('#drug_set').html("");
     }
   });
 }
