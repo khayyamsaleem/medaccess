@@ -12,3 +12,4 @@
 .ssh
 *.cfg
 *.wsgi
+*.pyc
