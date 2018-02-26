@@ -4,22 +4,9 @@ import sqlite3
 import pandas as pd
 import os
 
-DATABASE = ''
-
-try:
-    if os.environ['ENV'] == 'prod':
-        DATABASE = '/var/www/html/medaccess/db/pharm_data.db'
-    else:
-        DATABASE = './db/pharm_data.db'
-except:
-    DATABASE = './db/pharm_data.db'
-
 
 app = Flask(__name__)
-app.config.from_object(__name__)
-app.config.update(dict(
-    DEBUG=True,
-))
+app.config.from_envvar('MEDACCESS_CONFIG')
 
 conn = sqlite3.connect(app.config['DATABASE'], check_same_thread=False)
 
