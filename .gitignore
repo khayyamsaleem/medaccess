@@ -11,3 +11,4 @@
 *.gsheet
 .ssh
 *.cfg
+*.wsgi
