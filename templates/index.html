@@ -12,7 +12,7 @@
         <button type="button" onclick="get_pdp_region_code();">GET PDP REGION CODE</button>
         <div id="pdp_region_code"></div> <!-- PDP REGION CODE PRINTED HERE-->
         <br>
-        <div id="enter_drugs" style="display: none;">
+        <div id="app" style="display: none;">
           <span class="label">Enter number of drugs you wish to search: </span>
           <input type="number" max="20" min="1" id="numdrugs">
           <button type="button" onclick="renderDrugSearch();">GO</button>
@@ -24,11 +24,16 @@
           <button id='clear_all_data' onclick="clear_data();">CLEAR</button>
           <br>
           <div id='formularies'></div>
+          <br>
+          <button id='find_pharms' onclick="fetch_pharms();">FETCH PHARMACIES</button>
+          <br>
+          <div id='pharmacies'></div>
+          <br><br><br>
         </div>
     </body>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type='text/javascript' src="{{ url_for('static',filename='search.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</html>
 
+</html>

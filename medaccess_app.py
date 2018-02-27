@@ -14,8 +14,7 @@ conn = sqlite3.connect(app.config['DATABASE'], check_same_thread=False)
 global_vars = {
     "prc": None,
     "meds": [],
-    "top_5_pharms": []
-    "user_state": ""
+    "user_zip": ""
 }
 
 @app.route("/")
@@ -77,12 +76,12 @@ def search():
 @app.route("/pdp_region_code")
 def get_region_code():
     text = request.args['searchCode']
+    global_vars["user_zip"] = text
     user_state = pd.read_sql("select COUNTY,STATENAME\
                           from ZIP_STATE_COUNTY\
                           where ZIPCODE is '" + text + "'", conn)\
             ['STATENAME'].values[0].rstrip()
-    global_vars["user_state"] = user_state
-    global_vars["prc"] = pd.read_sql("select distinct PDP_REGION_CODE\
+    global_vars["prc"] = pd.read_sql("select distinct PDP_REGION_CODE \
                           from GEOGRAPHIC_LOCATOR\
                           where STATENAME is '"+user_state+"'",conn)\
              ['PDP_REGION_CODE'].values[0]
@@ -98,8 +97,7 @@ def save_rxcui():
 def clear_data():
     global_vars["prc"] = None
     global_vars["meds"] = []
-    global_vars["top_5_pharms"] = []
-    global_vars["user_state"] = []
+    global_vars["user_zip"] = ""
     return json.dumps({"status":"ok"})
 
 def nan_check(med):
@@ -120,6 +118,7 @@ def nan_check(med):
 
 @app.route("/formularies")
 def send_formularies():
+    pd.set_option('display.max_colwidth',-1)
     out = pd.read_sql("select \
                     PLAN_INFO.CONTRACT_NAME, \
                     PLAN_INFO.PLAN_NAME, \
@@ -185,18 +184,21 @@ def send_formularies():
             out['MONTHLY_COPAY'] = out[[c for c in out.columns if c[:3] == 'CAP']].sum(axis=1)
             out = out.sort_values(by='ANNUAL_TOTAL_COST').reset_index(drop=True).dropna()
 
-    return json.dumps({"results":out.to_html()})
+    out['SELECT'] = out.apply(lambda row: "<input type=\"checkbox\" value=\""+row['CONTRACT_ID']+","+"0"*(3-len(str(int(row['PLAN_ID']))))+str(int(row['PLAN_ID']))+"\" class=\"pick_plan\">",axis=1)
+    return json.dumps({"results":out.to_html(escape=False)})
 
-# @app.route("/display_pharmacies")
-# def display_pharmacies():
-#     for i in top_5_plans:
-#         df = pd.read_sql("\
-#         select NCPDP.PHARMACY_NAME, \
-#                NCPDP.PHONE,\
-#                PNF_DATA.*\
-#                from PNF_DATA,NCPDP\
-#                where PNF_DATA.CONTRACT_ID is \
-#         ",conn)
+@app.route("/fetch_pharmacies")
+def fetch_pharmacies():
+    c_id = request.args['contract_id'].encode('ascii','ignore')
+    p_id = request.args['plan_id'].encode('ascii','ignore')
+    pharms = pd.read_sql("select NCPDP.PHARMACY_NAME, NCPDP.PHONE, PNF_DATA.* \
+                          from PNF_DATA, NCPDP \
+                          where PNF_DATA.CONTRACT_ID is '"+c_id+"' and \
+                          PNF_DATA.PLAN_ID is '"+p_id+"' and\
+                          PNF_DATA.PHARMACY_ZIPCODE is '"+global_vars["user_zip"]+"' and \
+                          NCPDP.NPI is substr(PNF_DATA.PHARMACY_NUMBER,3) limit 10",conn)
+    return json.dumps({"results":pharms.to_html()})
+
 
 
 if __name__ == "__main__":
