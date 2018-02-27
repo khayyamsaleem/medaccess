@@ -13,7 +13,9 @@ conn = sqlite3.connect(app.config['DATABASE'], check_same_thread=False)
 
 global_vars = {
     "prc": None,
-    "meds": []
+    "meds": [],
+    "top_5_pharms": []
+    "user_state": ""
 }
 
 @app.route("/")
@@ -79,6 +81,7 @@ def get_region_code():
                           from ZIP_STATE_COUNTY\
                           where ZIPCODE is '" + text + "'", conn)\
             ['STATENAME'].values[0].rstrip()
+    global_vars["user_state"] = user_state
     global_vars["prc"] = pd.read_sql("select distinct PDP_REGION_CODE\
                           from GEOGRAPHIC_LOCATOR\
                           where STATENAME is '"+user_state+"'",conn)\
@@ -95,6 +98,8 @@ def save_rxcui():
 def clear_data():
     global_vars["prc"] = None
     global_vars["meds"] = []
+    global_vars["top_5_pharms"] = []
+    global_vars["user_state"] = []
     return json.dumps({"status":"ok"})
 
 def nan_check(med):
@@ -182,6 +187,16 @@ def send_formularies():
 
     return json.dumps({"results":out.to_html()})
 
+# @app.route("/display_pharmacies")
+# def display_pharmacies():
+#     for i in top_5_plans:
+#         df = pd.read_sql("\
+#         select NCPDP.PHARMACY_NAME, \
+#                NCPDP.PHONE,\
+#                PNF_DATA.*\
+#                from PNF_DATA,NCPDP\
+#                where PNF_DATA.CONTRACT_ID is \
+#         ",conn)
 
 
 if __name__ == "__main__":

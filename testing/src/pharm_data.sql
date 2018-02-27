@@ -159,8 +159,8 @@ create table PNF_DATA(
 .import '../data/NDC_DRUG_FILE_LIST_UTF8.csv' NDC_DATA
 .import '../data/2018NCPDPFILE_CLEAN.csv' NCPDP
 .import '../data/RXCUI_DATA.csv' RXCUI_DATA
-.import '../data/pnf/1.csv' PNF_DATA
-.import '../data/pnf/2.csv' PNF_DATA
-.import '../data/pnf/3.csv' PNF_DATA
-.import '../data/pnf/4.csv' PNF_DATA
-.import '../data/pnf/5.csv' PNF_DATA
+.import '../data/pnf_old/1.csv' PNF_DATA
+.import '../data/pnf_old/2.csv' PNF_DATA
+.import '../data/pnf_old/3.csv' PNF_DATA
+.import '../data/pnf_old/4.csv' PNF_DATA
+.import '../data/pnf_old/5.csv' PNF_DATA
